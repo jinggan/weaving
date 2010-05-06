@@ -9,8 +9,8 @@
 		<version>1.0</version>
 	</parent>
 	<groupId>org.jerrymouse</groupId>
-	<artifactId>weaving-person-profile</artifactId>
-	<name>weaving-person-profile</name>
+	<artifactId>weaving-network</artifactId>
+	<name>weaving-network</name>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -18,14 +18,16 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.jerrymouse</groupId>
-			<artifactId>jsa4j-db-kv</artifactId>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.jerrymouse</groupId>
-			<artifactId>weaving-config</artifactId>
-			<version>1.0</version>
-			<scope>test</scope>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
 		</dependency>
 	</dependencies>
 </project>

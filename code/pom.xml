@@ -6,7 +6,9 @@
 	<packaging>pom</packaging>
 	<version>1.0</version>
 	<name>weaving</name>
-
+<properties>
+		<jsa4j-verson>1.0-alpha-1</jsa4j-verson>
+	</properties>
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -109,7 +111,7 @@
 			<dependency>
 				<groupId>org.jerrymouse</groupId>
 				<artifactId>jsa4j-db-kv</artifactId>
-				<version>1.0-alpha-1</version>
+				<version>${jsa4j-verson}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -128,7 +130,7 @@
 
 	<modules>
 		<module>weaving-person-profile</module>
-    <module>weaving-core</module>
+    <module>weaving-config</module>    <module>weaving-network</module>
     <module>weaving-website-info</module>
   </modules>
 </project>
