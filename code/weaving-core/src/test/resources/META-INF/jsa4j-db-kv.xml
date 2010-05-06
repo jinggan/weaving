@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jsa4j-db-kv xmlns="http://jerrymouse.org/ns/jsa4j-db-kv"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://jerrymouse.org/ns/jsa4j_db_kv_1_0.xsd"
+	version="1.0">
+	<jsa4j-db-kv-unit name="derby">
+		<provider>org.jerrymouse.jsa4j.db.kv.local.derby.DerbyDBManager
+		</provider>
+	</jsa4j-db-kv-unit>
+	<jsa4j-db-kv-unit name="jcache">
+		<provider>org.jerrymouse.jsa4j.db.kv.local.derby.DerbyDBManager
+		</provider>
+	</jsa4j-db-kv-unit>
+	<jsa4j-db-kv-unit name="gae">
+		<provider>org.jerrymouse.jsa4j.db.kv.local.derby.DerbyDBManager
+		</provider>
+	</jsa4j-db-kv-unit>
+	<jsa4j-db-kv-unit name="gae-mem">
+		<provider>org.jerrymouse.jsa4j.db.kv.local.derby.DerbyDBManager
+		</provider>
+	</jsa4j-db-kv-unit>
+</jsa4j-db-kv>

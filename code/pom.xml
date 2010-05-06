@@ -129,5 +129,6 @@
 	<modules>
 		<module>weaving-person-profile</module>
     <module>weaving-core</module>
+    <module>weaving-website-info</module>
   </modules>
 </project>
