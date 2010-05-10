@@ -1,7 +1,9 @@
 package org.jerrymouse.weaving.eye;
 
 import org.jerrymouse.weaving.network.Network;
+import org.jerrymouse.weaving.network.NetworkFactory;
 import org.jerrymouse.weaving.webpage.WebpageRepository;
+import org.jerrymouse.weaving.webpage.WebpageRepositoryFactory;
 
 public class EyeFactory {
 	Network network;
@@ -22,6 +24,19 @@ public class EyeFactory {
 		this.network = network;
 		this.webpageRepository = webpageRepository;
 		return getEye();
+	}
+
+	public Network getNetwork() {
+		if (network == null)
+			network = new NetworkFactory().getNetWork();
+		return network;
+	}
+
+	public WebpageRepository getWebpageRepository() {
+		if (webpageRepository == null)
+			webpageRepository = new WebpageRepositoryFactory()
+					.getWebpageRepository();
+		return webpageRepository;
 	}
 
 	public Eye getEye() {

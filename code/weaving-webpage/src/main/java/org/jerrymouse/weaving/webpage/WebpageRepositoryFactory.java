@@ -11,6 +11,9 @@ public class WebpageRepositoryFactory {
 	}
 
 	public DB getDb() {
+		if (db == null)
+			db = new DBManagerFactory().getDBManager(DBManagerFactory.DERBY)
+					.getDB();
 		return db;
 	}
 
