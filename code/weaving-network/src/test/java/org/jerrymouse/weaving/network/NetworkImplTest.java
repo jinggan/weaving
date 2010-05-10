@@ -21,7 +21,7 @@ public class NetworkImplTest {
 
 	@Test
 	public void testGetForward() throws URISyntaxException {
-		URI uri = new URI("http://www.google.cn");
+		URI uri = new URI("http://www.google.com");
 		log.trace(uri.toString());
 		String content = network.get(uri);
 		log.trace(content);

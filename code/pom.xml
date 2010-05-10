@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jerrymouse</groupId>
 	<artifactId>weaving</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0</version>
 	<name>weaving</name>
-<properties>
-		<jsa4j-verson>1.0-alpha-1</jsa4j-verson>
+	<properties>
+		<jsa4j-version>1.0-alpha-1</jsa4j-version>
 	</properties>
 	<build>
 		<pluginManagement>
@@ -111,7 +112,7 @@
 			<dependency>
 				<groupId>org.jerrymouse</groupId>
 				<artifactId>jsa4j-db-kv</artifactId>
-				<version>${jsa4j-verson}</version>
+				<version>${jsa4j-version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -129,8 +130,11 @@
 	</repositories>
 
 	<modules>
-		<module>weaving-person-profile</module>
-    <module>weaving-config</module>    <module>weaving-network</module>
-    <module>weaving-website-info</module>
-  </modules>
+		<module>weaving-person-info</module>
+		<module>weaving-config</module>
+		<module>weaving-network</module>
+		<module>weaving-website-info</module>
+		<module>weaving-eye</module>
+		<module>weaving-webpage</module>
+	</modules>
 </project>

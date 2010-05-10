@@ -14,22 +14,19 @@ public class NetworkFactory {
 
 	public NetworkFactory() {
 		super();
-		NetworkConfigFactory networkConfigFactory = new NetworkConfigFactory();
-		this.networkConfig = networkConfigFactory.getNetworkConfig();
-	}
-
-	public NetworkFactory(String configPath) {
-		super();
-		NetworkConfigFactory networkConfigFactory = new NetworkConfigFactory();
-		if (configPath != null) {
-			networkConfigFactory.setConfigPath(configPath);
-		}
-		this.networkConfig = networkConfigFactory.getNetworkConfig();
 	}
 
 	public Network getNetWork() {
-		Network network = new NetworkImpl(networkConfig);
+		Network network = new NetworkImpl(getNetworkConfig());
 		return network;
+	}
+
+	public NetworkConfig getNetworkConfig() {
+		if (networkConfig == null) {
+			networkConfig = new NetworkConfig();
+			networkConfig.setInGFW(false);
+		}
+		return networkConfig;
 	}
 
 }
