@@ -130,11 +130,10 @@
 	</repositories>
 
 	<modules>
-		<module>weaving-person-info</module>
-		<module>weaving-config</module>
 		<module>weaving-network</module>
-		<module>weaving-website-info</module>
+		<module>weaving-model</module>
 		<module>weaving-eye</module>
 		<module>weaving-webpage</module>
+		<module>weaving-extracter</module>
 	</modules>
 </project>

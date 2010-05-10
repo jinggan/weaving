@@ -11,7 +11,6 @@ import org.jerrymouse.weaving.network.Network;
 import org.jerrymouse.weaving.network.NetworkFactory;
 import org.jerrymouse.weaving.webpage.WebpageRepository;
 import org.jerrymouse.weaving.webpage.WebpageRepositoryFactory;
-import org.jerrymouse.weaving.webpage.WebpageRepositoryImplTest;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -35,9 +34,9 @@ public class EyeImplTest {
 	@Test
 	public void testGet() throws URISyntaxException {
 		log.trace("begin");
-		String content = eye.get(new URI("http://yankay.com"));
+		String content = eye.see(new URI("http://yankay.com"));
 		log.trace(content);
-		String content2 = eye.get(new URI("http://yankay.com"));
+		String content2 = eye.see(new URI("http://yankay.com"));
 		log.trace(content2);
 	}
 }

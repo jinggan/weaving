@@ -10,7 +10,7 @@ public class EyeImpl implements Eye {
 	WebpageRepository webpageRepository;
 
 	@Override
-	public String get(URI url) {
+	public String see(URI url) {
 		String webContent = webpageRepository.get(url);
 		if (webContent == null) {
 			webContent = network.get(url);
@@ -30,7 +30,7 @@ public class EyeImpl implements Eye {
 	}
 
 	@Override
-	public String getLastest(URI url) {
+	public String seeLastest(URI url) {
 		String webContent = network.get(url);
 		if (webContent == null)
 			return null;
