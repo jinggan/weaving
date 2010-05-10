@@ -9,9 +9,9 @@ public class NetworkFactory {
 
 	public Network getNetWork() {
 		NetworkImpl network = new NetworkImpl();
+		GFWList gfwList = GFWList.read(configPath);
 		Fucker fucker = new Fucker();
 		fucker.setInGFW(isInGFW);
-		GFWList gfwList = GFWList.read(configPath);
 		fucker.setGfwList(gfwList);
 		network.setFucker(fucker);
 		return network;
