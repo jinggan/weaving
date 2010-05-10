@@ -1,32 +1,28 @@
 package org.jerrymouse.weaving.network;
 
+import org.jerrymouse.weaving.network.fuckGFW.Fucker;
+import org.jerrymouse.weaving.network.fuckGFW.GFWList;
+
 public class NetworkFactory {
-	private NetworkConfig networkConfig;
-
-	public void setNetworkConfig(NetworkConfig networkConfig) {
-		this.networkConfig = networkConfig;
-	}
-
-	public NetworkFactory(NetworkConfig networkConfig) {
-		super();
-		this.networkConfig = networkConfig;
-	}
-
-	public NetworkFactory() {
-		super();
-	}
+	private String configPath = "META-INF/weaving-network.xml";
+	private boolean isInGFW = false;
 
 	public Network getNetWork() {
-		Network network = new NetworkImpl(getNetworkConfig());
+		NetworkImpl network = new NetworkImpl();
+		Fucker fucker = new Fucker();
+		fucker.setInGFW(isInGFW);
+		GFWList gfwList = GFWList.read(configPath);
+		fucker.setGfwList(gfwList);
+		network.setFucker(fucker);
 		return network;
 	}
 
-	public NetworkConfig getNetworkConfig() {
-		if (networkConfig == null) {
-			networkConfig = new NetworkConfig();
-			networkConfig.setInGFW(false);
-		}
-		return networkConfig;
+	public void setInGFW(boolean isInGFW) {
+		this.isInGFW = isInGFW;
+	}
+
+	public void setConfigPath(String configPath) {
+		this.configPath = configPath;
 	}
 
 }

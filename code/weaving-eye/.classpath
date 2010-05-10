@@ -12,12 +12,18 @@
       <attribute value="jar:file:/home/yankai/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/apache/derby/derby/10.5.3.0_1/derby-10.5.3.0_1.jar"/>
   <classpathentry kind="var" path="M2_REPO/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar" sourcepath="M2_REPO/dom4j/dom4j/1.6.1/dom4j-1.6.1-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/codehaus/jackson/jackson-core-asl/1.5.1/jackson-core-asl-1.5.1.jar" sourcepath="M2_REPO/org/codehaus/jackson/jackson-core-asl/1.5.1/jackson-core-asl-1.5.1-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/codehaus/jackson/jackson-mapper-asl/1.5.1/jackson-mapper-asl-1.5.1.jar" sourcepath="M2_REPO/org/codehaus/jackson/jackson-mapper-asl/1.5.1/jackson-mapper-asl-1.5.1-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/jerrymouse/jsa4j-db-kv/1.0-alpha-1/jsa4j-db-kv-1.0-alpha-1.jar" sourcepath="M2_REPO/org/jerrymouse/jsa4j-db-kv/1.0-alpha-1/jsa4j-db-kv-1.0-alpha-1-sources.jar">
     <attributes>
       <attribute value="jar:file:/home/yankai/.m2/repository/org/jerrymouse/jsa4j-db-kv/1.0-alpha-1/jsa4j-db-kv-1.0-alpha-1-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/jerrymouse/jsa4j-db-kv-derby/1.0-alpha-1/jsa4j-db-kv-derby-1.0-alpha-1.jar" sourcepath="M2_REPO/org/jerrymouse/jsa4j-db-kv-derby/1.0-alpha-1/jsa4j-db-kv-derby-1.0-alpha-1-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/yankai/.m2/repository/org/jerrymouse/jsa4j-db-kv-derby/1.0-alpha-1/jsa4j-db-kv-derby-1.0-alpha-1-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
   <classpathentry kind="var" path="M2_REPO/junit/junit/4.7/junit-4.7.jar" sourcepath="M2_REPO/junit/junit/4.7/junit-4.7-sources.jar"/>

@@ -7,7 +7,6 @@
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="w:GFW-list" />
-				<xs:element name="inGFW" type="xs:boolean" />
 			</xs:sequence>
 			<xs:attribute name="version" use="required" type="xs:decimal" />
 			<xs:attribute ref="xsi:schemaLocation" use="required" />

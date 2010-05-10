@@ -5,15 +5,14 @@ import java.net.URI;
 import org.jerrymouse.weaving.network.fuckGFW.Fucker;
 
 public class NetworkImpl implements Network {
-	private NetworkConfig networkConfig;
+	private Fucker fucker;
 
-	public NetworkImpl(NetworkConfig networkConfig) {
-		this.networkConfig = networkConfig;
+	public void setFucker(Fucker fucker) {
+		this.fucker = fucker;
 	}
 
 	@Override
 	public String get(URI url) {
-		Fucker fucker = new Fucker(networkConfig);
 		HTTPReader httpReader = new HTTPReader();
 		httpReader.setProxy(fucker.getProxy(url));
 		return httpReader.read(url);
