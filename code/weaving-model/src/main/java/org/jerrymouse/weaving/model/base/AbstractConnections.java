@@ -1,7 +1,9 @@
 package org.jerrymouse.weaving.model.base;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.jerrymouse.weaving.model.Connections;
 
 public abstract class AbstractConnections implements Connections {
@@ -56,6 +58,18 @@ public abstract class AbstractConnections implements Connections {
 
 	public void setSelfLinks(List<String> selfLinks) {
 		this.selfLinks = selfLinks;
+	}@Override
+	public String toString() {
+		try {
+			return BeanUtils.describe(this).toString();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+		}
+		return super.toString();
 	}
 
 }

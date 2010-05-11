@@ -1,8 +1,10 @@
 package org.jerrymouse.weaving.model.base;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.jerrymouse.weaving.model.Profile;
 
 public abstract class AbstractProfile implements Profile{
@@ -80,5 +82,17 @@ public abstract class AbstractProfile implements Profile{
 
 	public void setUsername(String username) {
 		this.username = username;
+	}@Override
+	public String toString() {
+		try {
+			return BeanUtils.describe(this).toString();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+		}
+		return super.toString();
 	}
 }

@@ -41,8 +41,8 @@ public class EyeFactory {
 
 	public Eye getEye() {
 		EyeImpl eye = new EyeImpl();
-		eye.setNetwork(network);
-		eye.setWebpageRepository(webpageRepository);
+		eye.setNetwork(getNetwork());
+		eye.setWebpageRepository(getWebpageRepository());
 		return eye;
 	}
 

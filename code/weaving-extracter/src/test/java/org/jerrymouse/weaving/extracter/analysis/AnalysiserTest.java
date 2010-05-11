@@ -2,6 +2,7 @@ package org.jerrymouse.weaving.extracter.analysis;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.jerrymouse.weaving.extracter.analysis.filer.FilterManager;
 import org.jerrymouse.weaving.model.Website;
 import org.junit.Before;
 import org.junit.Test;

@@ -4,13 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.jerrymouse.weaving.extracter.analysis.filer.douban.DoubanProfileFilter;
+import org.jerrymouse.weaving.eye.Eye;
+import org.jerrymouse.weaving.eye.EyeFactory;
 
 public class FilterManager {
 	List<Filter> filters;
+	private Eye eye;
+
+	public void setEye(Eye eye) {
+		this.eye = eye;
+	}
+
+	public Eye getEye() {
+		if (eye == null)
+			eye = new EyeFactory().getEye();
+		return eye;
+	}
 
 	public void init() {
 		filters = new ArrayList<Filter>();
-		Filter filter = new DoubanProfileFilter();
+		DoubanProfileFilter filter = new DoubanProfileFilter();
+		filter.setEye(getEye());
 		filters.add(filter);
 	}
 
@@ -20,9 +34,4 @@ public class FilterManager {
 		return filters;
 	}
 
-	public void load() {
-	}
-
-	public void save() {
-	}
 }

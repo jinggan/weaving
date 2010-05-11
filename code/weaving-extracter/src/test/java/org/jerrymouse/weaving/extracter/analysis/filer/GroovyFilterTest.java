@@ -1,6 +1,6 @@
 package org.jerrymouse.weaving.extracter.analysis.filer;
 
-import org.jerrymouse.weaving.extracter.analysis.model.AnalysiserWebsite;
+import org.jerrymouse.weaving.extracter.analysis.model.AnalysiseWebsite;
 import org.jerrymouse.weaving.eye.Eye;
 import org.jerrymouse.weaving.eye.EyeFactory;
 import org.jerrymouse.weaving.model.Website;
@@ -19,7 +19,7 @@ public class GroovyFilterTest {
 
 	@Test
 	public void testAnalysis() {
-		Website webSite = new AnalysiserWebsite();
+		Website webSite = new AnalysiseWebsite();
 		groovyFilter.analysis(webSite);
 	}
 }

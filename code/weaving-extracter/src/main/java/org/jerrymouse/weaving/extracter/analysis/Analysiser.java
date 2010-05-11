@@ -3,7 +3,7 @@ package org.jerrymouse.weaving.extracter.analysis;
 import java.util.List;
 
 import org.jerrymouse.weaving.extracter.analysis.filer.Filter;
-import org.jerrymouse.weaving.extracter.analysis.model.AnalysiserWebsite;
+import org.jerrymouse.weaving.extracter.analysis.model.AnalysiseWebsite;
 import org.jerrymouse.weaving.model.Website;
 
 /**
@@ -26,7 +26,7 @@ public class Analysiser {
 	 * @return
 	 */
 	Website analysis(String url) {
-		Website site = new AnalysiserWebsite();
+		Website site = new AnalysiseWebsite();
 		for (Filter f : filters) {
 			f.analysis(site);
 		}
