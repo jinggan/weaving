@@ -7,7 +7,7 @@ import java.util.List;
  */
 public interface Person {
 
-	public void setWebsites(List<Website> websites);
-
 	public List<Website> getWebsites();
+
+	public void setWebsites(List<Website> websites);
 }

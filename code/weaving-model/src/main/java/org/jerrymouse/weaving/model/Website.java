@@ -5,16 +5,16 @@ public interface Website {
 	// private Connections connections;
 	// private Feeds feeds;
 
-	public Profile getProfile();
-
-	public void setProfile(Profile profile);
-
 	public Connections getConnections();
-
-	public void setConnections(Connections connections);
 
 	public Feeds getFeeds();
 
+	public Profile getProfile();
+
+	public void setConnections(Connections connections);
+
 	public void setFeeds(Feeds feeds);
+
+	public void setProfile(Profile profile);
 
 }

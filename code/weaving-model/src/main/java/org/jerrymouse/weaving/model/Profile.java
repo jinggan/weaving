@@ -26,6 +26,14 @@ public interface Profile {
 	 */
 	// private List<String> avatarLinks;
 
+	public List<String> getAvatarLinks();
+
+	public List<String> getEmails();
+
+	public String getId();
+
+	public Map<String, String> getPersonInfomations();
+
 	/**
 	 * 基本信息(真实姓名,生日,性别,地点....)<br/>
 	 * 比较灵活
@@ -34,25 +42,17 @@ public interface Profile {
 
 	public String getUrl();
 
-	public void setUrl(String url);
-
 	public String getUsername();
-
-	public void setUsername(String username);
-
-	public String getId();
-
-	public void setId(String id);
-
-	public List<String> getEmails();
-
-	public void setEmails(List<String> emails);
-
-	public List<String> getAvatarLinks();
 
 	public void setAvatarLinks(List<String> avatarLinks);
 
-	public Map<String, String> getPersonInfomations();
+	public void setEmails(List<String> emails);
+
+	public void setId(String id);
 
 	public void setPersonInfomations(Map<String, String> personInfomations);
+
+	public void setUrl(String url);
+
+	public void setUsername(String username);
 }
