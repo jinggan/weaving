@@ -2,6 +2,8 @@ package org.jerrymouse.weaving.extracter.analysis.filer.douban;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.jerrymouse.weaving.extracter.analysis.filer.analysis.DomUtils;
+import org.jerrymouse.weaving.extracter.analysis.filer.analysis.StringUtils;
 import org.jerrymouse.weaving.extracter.analysis.model.AnalysiseProfile;
 import org.jerrymouse.weaving.extracter.analysis.model.AnalysiseWebsite;
 import org.jerrymouse.weaving.eye.Eye;
@@ -20,6 +22,8 @@ public class DoubanProfileFilterTest {
 		Eye eye = new EyeFactory().getEye();
 		doubanProfileFilter = new DoubanProfileFilter();
 		doubanProfileFilter.setEye(eye);
+		doubanProfileFilter.setStringUtils(new StringUtils());
+		doubanProfileFilter.setDomUtils(new DomUtils());
 	}
 
 	@Test

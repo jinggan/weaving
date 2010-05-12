@@ -15,10 +15,6 @@ import org.jerrymouse.weaving.model.Website;
 public class Analysiser {
 	private List<Filter> filters;
 
-	public void setFilters(List<Filter> filters) {
-		this.filters = filters;
-	}
-
 	/**
 	 * 根据一个URL，挖出其相应的WebSite信息
 	 * 
@@ -31,6 +27,10 @@ public class Analysiser {
 			f.analysis(site);
 		}
 		return site;
+	}
+
+	public void setFilters(List<Filter> filters) {
+		this.filters = filters;
 	}
 
 }

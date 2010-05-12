@@ -12,32 +12,32 @@ public abstract class AbstractProfile implements Profile{
 	/**
 	 * 头像链接s
 	 */
-	private List<String> avatarLinks;
+	protected List<String> avatarLinks;
 	/**
 	 * Emails
 	 */
-	private List<String> emails;
+	protected List<String> emails;
 
 	/**
 	 * id,一般不可读
 	 */
-	private String id;
+	protected String id;
 
 	/**
 	 * 基本信息(真实姓名,生日,性别,地点....)<br/>
 	 * 比较灵活
 	 */
-	private Map<String, String> personInfomations;
+	protected Map<String, String> personInfomations;
 
 	/**
 	 * 个人主页
 	 */
-	private String url;
+	protected String url;
 
 	/**
 	 * 用户名，一般可读
 	 */
-	private String username;
+	protected String username;
 
 	public List<String> getAvatarLinks() {
 		return avatarLinks;

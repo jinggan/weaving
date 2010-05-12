@@ -7,16 +7,19 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.jerrymouse.weaving.extracter.analysis.filer.AnalysiserUtils;
 import org.jerrymouse.weaving.extracter.analysis.filer.Filter;
+import org.jerrymouse.weaving.extracter.analysis.filer.analysis.DomUtils;
+import org.jerrymouse.weaving.extracter.analysis.filer.analysis.Node;
+import org.jerrymouse.weaving.extracter.analysis.filer.analysis.StringUtils;
 import org.jerrymouse.weaving.eye.Eye;
 import org.jerrymouse.weaving.model.Profile;
 import org.jerrymouse.weaving.model.Website;
-import org.w3c.dom.Node;
 
 public class DoubanProfileFilter implements Filter {
 	private Eye eye;
 	private static Log log = LogFactory.getLog(DoubanProfileFilter.class);
+	private DomUtils domUtils;
+	private StringUtils stringUtils;
 
 	public void setEye(Eye eye) {
 		this.eye = eye;
@@ -42,27 +45,21 @@ public class DoubanProfileFilter implements Filter {
 
 	private String getBigAvatarLinks(String htmlContent) {
 		String xpath = "/html/body/div[2]/div[2]/div/div[2]/div/table/tbody/tr[2]/td[2]/img";
-		Node node = new AnalysiserUtils().getSingleNodeFromXpath(htmlContent,
+		Node node = domUtils.getSingleNodeFromXpath(htmlContent,
 				xpath);
-		if (node == null)
-			return null;
-		String imageLink = node.getAttributes().getNamedItem("src")
-				.getTextContent().trim();
-		return imageLink;
+		return node.getAtrribute("src");
 	}
 
 	private String getUsernameFromContent(String htmlContent) {
 		String xpath = "/html/body/div[2]/div[2]/div/div/div/div[2]/h1";
-		Node node = new AnalysiserUtils().getSingleNodeFromXpath(htmlContent,
+		Node node = domUtils.getSingleNodeFromXpath(htmlContent,
 				xpath);
-		return node.getTextContent().trim();
+		return node.getTextContent();
 	}
 
 	private String getIdFromUrl(String url) {
-		String k = new AnalysiserUtils().stringMode(url,
-				"douban.com/people/[^/]*");
-		String n = k.substring("douban.com/people/".length());
-		return n;
+		return stringUtils.urlParser(url,
+				"douban.com/people/{id}");
 	}
 
 	@Override
@@ -72,19 +69,25 @@ public class DoubanProfileFilter implements Filter {
 
 	@Override
 	public boolean match(String url) {
-		if (url.contains("http://www.douban.com/people/"))
-			return true;
-		return false;
+		return stringUtils.match(url,
+				StringUtils.CONTAIN + "http://www.douban.com/people/");
 	}
 
 	private String getSmallAvatarLinks(String htmlContent) {
 		String xpath = "/html/body/div[2]/div[2]/div/div/div/div/a/img";
-		Node node = new AnalysiserUtils().getSingleNodeFromXpath(htmlContent,
+		Node node = domUtils.getSingleNodeFromXpath(htmlContent,
 				xpath);
-		String imageLink = node.getAttributes().getNamedItem("src")
-				.getTextContent().trim();
-		return imageLink;
+		return node.getAtrribute("src");
+	}
 
+	@Override
+	public void setDomUtils(DomUtils domUtils) {
+		this.domUtils = domUtils;
+	}
+
+	@Override
+	public void setStringUtils(StringUtils stringUtils) {
+		this.stringUtils = stringUtils;
 	}
 
 }

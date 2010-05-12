@@ -9,9 +9,9 @@ import org.jerrymouse.weaving.model.Profile;
 import org.jerrymouse.weaving.model.Website;
 
 public abstract class AbstractWebsite implements Website {
-	private Profile profile;
-	private Connections connections;
-	private Feeds feeds;
+	protected Profile profile;
+	protected Connections connections;
+	protected Feeds feeds;
 
 	public Profile getProfile() {
 		return profile;
