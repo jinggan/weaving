@@ -1,50 +1,51 @@
-package org.jerrymouse.weaving.extracter.analysis.filer;
+package org.jerrymouse.weaving.extracter.analysis.filer.analysis;
 
 import java.io.IOException;
 import java.io.StringReader;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.transform.TransformerException;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.cyberneko.html.parsers.DOMParser;
 import org.w3c.dom.Document;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import com.sun.org.apache.xpath.internal.XPathAPI;
 
-public class AnalysiserUtils {
+public class DomUtils {
+	private static Log log = LogFactory.getLog(DomUtils.class);
 
-	/**
-	 * mode like http://www.douban.com/people//
-	 * 
-	 * @param url
-	 * @param mode
-	 */
-	public String stringMode(String url, String mode) {
-		Scanner scanner = new Scanner(url);
-		String result = scanner.findInLine(mode);
-		return result;
-	}
 
 	public Node getSingleNodeFromXpath(Document doc, String xpath) {
-		NodeList nodes = getNodesFromXpath(doc, xpath);
-		return nodes.item(0);
+		List<Node> nodes = getNodesFromXpath(doc, xpath);
+		if (nodes == null || nodes.size() < 1)
+			return new Node();
+		return nodes.get(0);
 	}
 
-	public NodeList getNodesFromXpath(Document doc, String xpath) {
+	public List<Node> getNodesFromXpath(Document doc, String xpath) {
 		xpath = xpath.toUpperCase();
+		List<Node> analysisNodes;
+		analysisNodes = new ArrayList<Node>();
 		try {
-			return XPathAPI.selectNodeList(doc, xpath);
+			NodeList nodes = XPathAPI.selectNodeList(doc, xpath);
+			if (nodes == null)
+				return analysisNodes;
+			for (int i = 0; i < nodes.getLength(); i++) {
+				analysisNodes.add(new Node(nodes.item(i)));
+			}
 		} catch (TransformerException e) {
-			e.printStackTrace();
+			log.trace(e.getMessageAndLocation());
 		}
-		return null;
+		return analysisNodes;
 	}
 
-	public NodeList getNodesFromXpath(String htmlContent, String xpath) {
+	public List<Node> getNodesFromXpath(String htmlContent, String xpath) {
 		return getNodesFromXpath(getDocument(htmlContent), xpath);
 	}
 
