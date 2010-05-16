@@ -10,7 +10,7 @@ import org.junit.Test;
 
 public class GroovyFilterManagerTest extends TestCaseBase {
 	@Resource
-	private GroovyFilterManager filterManager;
+	private GroovyFilterManager groovyFilterManager;
 
 	@Before
 	public void setUp() throws Exception {
@@ -18,7 +18,7 @@ public class GroovyFilterManagerTest extends TestCaseBase {
 
 	@Test
 	public void testGet() throws Exception {
-		GroovyFilter groovyFilter = filterManager
+		GroovyFilter groovyFilter = groovyFilterManager
 				.getGroovyFilter("doubanProfile");
 		log.trace(groovyFilter);
 	}

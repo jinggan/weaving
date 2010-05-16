@@ -37,10 +37,13 @@ public class GroovyFilterManager {
 	}
 
 	public GroovyFilter getGroovyFilter(String name) {
+		return getGroovyFilterByScript(filterRepository.getScripts().get(name));
+	}
+
+	public GroovyFilter getGroovyFilterByScript(String script) {
 		GroovyFilter filter = null;
 		try {
 			filter = new GroovyFilter();
-			String script = filterRepository.getScripts().get(name);
 			ScriptEngine engine = scriptEngineManager.getEngineByName("groovy");
 			engine.put("eye", eye);
 			engine.put("domUtils", domUtils);

@@ -95,7 +95,6 @@ public class GroovyFilterRepository {
 			}
 		}
 		return inputStream;
-
 	}
 
 	public void putScripts(Map<String, String> map) {

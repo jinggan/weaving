@@ -1,7 +1,6 @@
 package org.jerrymouse.weaving.extracter.analysis.filer.groovy;
 
 import javax.annotation.Resource;
-import javax.script.ScriptException;
 
 import org.jerrymouse.weaving.extracter.analysis.model.AnalysiseProfile;
 import org.jerrymouse.weaving.extracter.analysis.model.AnalysiseWebsite;
