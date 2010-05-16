@@ -1,11 +1,39 @@
 package org.jerrymouse.weaving.webpage;
 
-import java.net.URI;
+import java.net.URL;
 
-public interface WebpageRepository {
+import javax.annotation.Resource;
 
-	String get(URI url);
+import org.jerrymouse.jsa4j.db.kv.DB;
+import org.jerrymouse.jsa4j.db.kv.Repository;
+import org.springframework.stereotype.Component;
 
-	void put(URI url, String webContent);
+@Component
+public class WebpageRepository {
 
+	private static String webpagePrefix = "webpage";
+	@Resource(name = "db")
+	private DB db;
+	private Repository repository;
+
+	public String get(URL url) {
+		String key = url.toString();
+		return getRepository().get(key);
+	}
+
+	private Repository getRepository() {
+		if (repository == null) {
+			repository = new Repository(webpagePrefix, db);
+		}
+		return repository;
+	}
+
+	public void put(URL url, String webContent) {
+		String key = url.toString();
+		getRepository().put(key, webContent);
+	}
+
+	public void setDb(DB db) {
+		this.db = db;
+	}
 }
