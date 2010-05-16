@@ -1,4 +1,4 @@
-package org.jerrymouse.weaving.extracter.analysis.filer.analysis;
+package org.jerrymouse.weaving.extracter.analysis.filer.utils;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -10,6 +10,7 @@ import javax.xml.transform.TransformerException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.cyberneko.html.parsers.DOMParser;
+import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
@@ -17,9 +18,9 @@ import org.xml.sax.SAXException;
 
 import com.sun.org.apache.xpath.internal.XPathAPI;
 
+@Component
 public class DomUtils {
 	private static Log log = LogFactory.getLog(DomUtils.class);
-
 
 	public Node getSingleNodeFromXpath(Document doc, String xpath) {
 		List<Node> nodes = getNodesFromXpath(doc, xpath);

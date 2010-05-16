@@ -1,15 +1,16 @@
-package org.jerrymouse.weaving.extracter.analysis.filer.analysis;
+package org.jerrymouse.weaving.extracter.analysis.filer.utils;
 
 import java.util.Scanner;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.stereotype.Component;
 
+@Component
 public class StringUtils {
 	private static Log log = LogFactory.getLog(StringUtils.class);
 	public static String CONTAIN = "contain:";
 	public static String REGEX = "regex:";
-
 
 	/**
 	 *只能支持一个变量<br/>
@@ -35,14 +36,15 @@ public class StringUtils {
 
 	public boolean match(String url, String pattern) {
 		String m = null;
-		if (url.startsWith(CONTAIN)) {
-			m = url.substring(CONTAIN.length());
-			return url.contains(m.trim());
-		} else if (url.startsWith(REGEX)) {
+		if (url.startsWith(REGEX)) {
 			m = url.substring(REGEX.length());
 			return url.matches(m);
+		} else if (url.startsWith(CONTAIN)) {
+			m = url.substring(CONTAIN.length());
+			return url.contains(m.trim());
+		} else {
+			return url.contains(pattern.trim());
 		}
-		return false;
 
 	}
 

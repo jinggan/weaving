@@ -1,23 +1,20 @@
 package org.jerrymouse.weaving.extracter.analysis;
 
+import javax.annotation.Resource;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.jerrymouse.weaving.extracter.analysis.filer.FilterManager;
 import org.jerrymouse.weaving.model.Website;
-import org.junit.Before;
+import org.jerrymouse.weaving.test.TestCaseBase;
 import org.junit.Test;
 
-public class AnalysiserTest {
+public class AnalysiserTest extends TestCaseBase {
 
 	private String url = "http://www.douban.com/people/yankay/";
-	Analysiser analysiser;
+	@Resource
+	private Analysiser analysiser;
 
-	private Log log = LogFactory.getLog(AnalysiserTest.class);
-
-	@Before
-	public void setUp() throws Exception {
-		analysiser = new AnalysiserCreater().create(url);
-	}
+	private static Log log = LogFactory.getLog(AnalysiserTest.class);
 
 	@Test
 	public void testAnalysis() {

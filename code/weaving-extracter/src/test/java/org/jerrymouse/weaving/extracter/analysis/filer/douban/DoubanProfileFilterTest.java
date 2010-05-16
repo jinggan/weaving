@@ -1,30 +1,21 @@
 package org.jerrymouse.weaving.extracter.analysis.filer.douban;
 
+import javax.annotation.Resource;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.jerrymouse.weaving.extracter.analysis.filer.analysis.DomUtils;
-import org.jerrymouse.weaving.extracter.analysis.filer.analysis.StringUtils;
+import org.jerrymouse.weaving.extracter.analysis.filer.java.DoubanProfileFilter;
 import org.jerrymouse.weaving.extracter.analysis.model.AnalysiseProfile;
 import org.jerrymouse.weaving.extracter.analysis.model.AnalysiseWebsite;
-import org.jerrymouse.weaving.eye.Eye;
-import org.jerrymouse.weaving.eye.EyeFactory;
 import org.jerrymouse.weaving.model.Profile;
 import org.jerrymouse.weaving.model.Website;
-import org.junit.Before;
+import org.jerrymouse.weaving.test.TestCaseBase;
 import org.junit.Test;
 
-public class DoubanProfileFilterTest {
-	DoubanProfileFilter doubanProfileFilter;
+public class DoubanProfileFilterTest extends TestCaseBase {
+	@Resource
+	private DoubanProfileFilter doubanProfileFilter;
 	private static Log log = LogFactory.getLog(DoubanProfileFilterTest.class);
-
-	@Before
-	public void setUp() throws Exception {
-		Eye eye = new EyeFactory().getEye();
-		doubanProfileFilter = new DoubanProfileFilter();
-		doubanProfileFilter.setEye(eye);
-		doubanProfileFilter.setStringUtils(new StringUtils());
-		doubanProfileFilter.setDomUtils(new DomUtils());
-	}
 
 	@Test
 	public void testAnalysis() {

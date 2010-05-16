@@ -2,7 +2,7 @@ package org.jerrymouse.weaving.extracter.analysis.filer;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.jerrymouse.weaving.extracter.analysis.filer.analysis.StringUtils;
+import org.jerrymouse.weaving.extracter.analysis.filer.utils.StringUtils;
 import org.junit.Before;
 import org.junit.Test;
 

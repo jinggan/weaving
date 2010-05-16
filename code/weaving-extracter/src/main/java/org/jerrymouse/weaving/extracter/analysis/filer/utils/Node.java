@@ -1,4 +1,6 @@
-package org.jerrymouse.weaving.extracter.analysis.filer.analysis;
+package org.jerrymouse.weaving.extracter.analysis.filer.utils;
+
+import org.springframework.stereotype.Component;
 
 public class Node {
 	private org.w3c.dom.Node node;

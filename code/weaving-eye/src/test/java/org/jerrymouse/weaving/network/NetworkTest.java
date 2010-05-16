@@ -16,8 +16,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:spring-eye.xml" })
-public class NetworkTest {
+@ContextConfiguration(locations = { "classpath:spring-eye.xml",
+		"classpath:spring-eye-test.xml" })public class NetworkTest {
 	@Resource
 	Network network;
 	private static Log log = LogFactory.getLog(NetworkTest.class);

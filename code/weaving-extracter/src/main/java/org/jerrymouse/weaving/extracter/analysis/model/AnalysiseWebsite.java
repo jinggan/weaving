@@ -5,10 +5,4 @@ import org.jerrymouse.weaving.model.base.AbstractWebsite;
 
 public class AnalysiseWebsite extends AbstractWebsite {
 
-	@Override
-	public Profile getProfile() {
-		if (profile == null)
-			profile = new AnalysiseProfile();
-		return profile;
-	}
 }
