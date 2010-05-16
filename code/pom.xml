@@ -9,6 +9,7 @@
 	<name>weaving</name>
 	<properties>
 		<jsa4j-version>1.0-alpha-1</jsa4j-version>
+		<spring-version>3.0.2.RELEASE</spring-version>
 	</properties>
 	<build>
 		<pluginManagement>
@@ -38,7 +39,6 @@
 						<downloadJavadocs>true</downloadJavadocs>
 					</configuration>
 				</plugin>
-
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-javadoc-plugin</artifactId>
@@ -67,7 +67,6 @@
 						</execution>
 					</executions>
 				</plugin>
-
 			</plugins>
 		</pluginManagement>
 		<plugins>
@@ -87,7 +86,39 @@
 		</extensions>
 	</build>
 	<dependencyManagement>
-		<dependencies><!-- log -->
+		<dependencies>
+			<!-- spring -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${spring-version}</version>
+			</dependency>
+			<!-- xml -->
+			<dependency>
+				<groupId>dom4j</groupId>
+				<artifactId>dom4j</artifactId>
+				<version>1.6.1</version>
+			</dependency>
+			<!-- log -->
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>1.2.14</version>
+			</dependency>
+			<!-- test -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.7</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- storage -->
+			<dependency>
+				<groupId>org.jerrymouse</groupId>
+				<artifactId>jsa4j-db-kv</artifactId>
+				<version>${jsa4j-version}</version>
+			</dependency>
+			<!-- commons -->
 			<dependency>
 				<groupId>commons-logging</groupId>
 				<artifactId>commons-logging</artifactId>
@@ -103,34 +134,18 @@
 				<artifactId>commons-lang</artifactId>
 				<version>2.5</version>
 			</dependency>
-
 			<dependency>
 				<groupId>commons-beanutils</groupId>
 				<artifactId>commons-beanutils</artifactId>
 				<version>1.8.3</version>
-			</dependency>
-			<dependency>
-				<groupId>log4j</groupId>
-				<artifactId>log4j</artifactId>
-				<version>1.2.14</version>
-			</dependency><!-- test -->
-			<dependency>
-				<groupId>junit</groupId>
-				<artifactId>junit</artifactId>
-				<version>4.7</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.jerrymouse</groupId>
-				<artifactId>jsa4j-db-kv</artifactId>
-				<version>${jsa4j-version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<distributionManagement>
 		<repository>
 			<id>google code</id>
-			<url>dav:https://KaiYanNju:QM7YE6gj9dk7@jerrymouse-repositories.googlecode.com/svn</url>
+			<url>dav:https://KaiYanNju:QM7YE6gj9dk7@jerrymouse-repositories.googlecode.com/svn
+			</url>
 		</repository>
 	</distributionManagement>
 	<repositories>
@@ -139,12 +154,9 @@
 			<url>http://jerrymouse-repositories.googlecode.com/svn</url>
 		</repository>
 	</repositories>
-
 	<modules>
-		<module>weaving-network</module>
 		<module>weaving-model</module>
 		<module>weaving-eye</module>
-		<module>weaving-webpage</module>
 		<module>weaving-extracter</module>
 	</modules>
 </project>

@@ -35,7 +35,6 @@ public class GroovyFilterTest {
 
 	@Test
 	public void testDoubanAnalysis() {
-		
 		Website website = new AnalysiseWebsite();
 		Profile profile = new AnalysiseProfile();
 		profile.setUrl("http://www.douban.com/people/yankay/");

@@ -4,8 +4,6 @@
   <projects>
     <project>weaving-eye</project>
     <project>weaving-model</project>
-    <project>weaving-network</project>
-    <project>weaving-webpage</project>
   </projects>
   <buildSpec>
     <buildCommand>
