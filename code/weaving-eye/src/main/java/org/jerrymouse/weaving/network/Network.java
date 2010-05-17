@@ -1,5 +1,6 @@
 package org.jerrymouse.weaving.network;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Network {
-	@Resource(name="autoProxy")
+	@Resource(name = "autoProxy")
 	private AutoProxy autoProxy;
 
 	public String get(URL url) {

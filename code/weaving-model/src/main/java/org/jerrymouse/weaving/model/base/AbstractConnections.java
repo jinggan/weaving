@@ -11,22 +11,22 @@ public abstract class AbstractConnections implements Connections {
 	/**
 	 * Followed的人到站内链接s
 	 */
-	private List<String> followedLinks;
+	protected List<String> followedLinks;
 
 	/**
 	 * Follow人的站内和站外链接s
 	 */
-	private List<String> followLinks;
+	protected List<String> followLinks;
 
 	/**
 	 * 朋友的站内链接s
 	 */
-	private List<String> friendLinks;
+	protected List<String> friendLinks;
 
 	/**
 	 * 自己的站外链接s
 	 */
-	private List<String> selfLinks;
+	protected List<String> selfLinks;
 
 	public List<String> getFollowedLinks() {
 		return followedLinks;

@@ -1,7 +1,5 @@
 package org.jerrymouse.weaving.developTool.web;
 
-import javax.annotation.Resource;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +16,7 @@ public class DebugController {
 
 	@RequestMapping(method = { RequestMethod.POST })
 	public String debug(String url, String script, ModelMap map) {
-		
+
 		return "script-debug";
 	}
 

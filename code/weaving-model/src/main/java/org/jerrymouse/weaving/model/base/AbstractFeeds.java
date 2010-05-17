@@ -10,7 +10,7 @@ public abstract class AbstractFeeds implements Feeds {
 	/**
 	 * 信息源地址
 	 */
-	private List<String> feedLinks;
+	protected List<String> feedLinks;
 
 	public List<String> getFeedLinks() {
 		return feedLinks;

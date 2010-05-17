@@ -27,6 +27,7 @@ def analysis(Website webSite){
 	String htmlContent = eye.see(new URL(profile.getUrl()));
 	if (htmlContent == null)
 		return;
+	webSite.profile.username=getUsernameFromContent(htmlContent);
 	List<String> avatarLinks = new ArrayList<String>();
 	avatarLinks.add(getSmallAvatarLinks(htmlContent));
 	avatarLinks.add(getBigAvatarLinks(htmlContent));
@@ -45,7 +46,7 @@ def String getBigAvatarLinks(String htmlContent) {
 }
 
 def String getUsernameFromContent(String htmlContent) {
-	String xpath = "/html/body/div[2]/div[2]/div/div/div/div[2]/h1";
+	String xpath = "/html/head/title";
 	Node node = domUtils.getSingleNodeFromXpath(htmlContent, xpath);
 	node.getTextContent();
 }

@@ -25,7 +25,8 @@ public class Analysiser {
 	private FilterManager filterManager;
 
 	/**
-	 * 根据一个URL，挖出其相应的WebSite信息
+	 * 根据一个URL，挖出其相应的WebSite信息。
+	 * 会更新存储信息
 	 * 
 	 * @param url
 	 * @return

@@ -171,6 +171,6 @@
 		<module>weaving-model</module>
 		<module>weaving-eye</module>
 		<module>weaving-extracter</module>
-    <module>weaving-develop-tool-web</module>
+    <module>weaving-website-repo</module>
   </modules>
 </project>

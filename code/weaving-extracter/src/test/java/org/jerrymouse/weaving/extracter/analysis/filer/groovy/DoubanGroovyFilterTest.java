@@ -33,6 +33,27 @@ public class DoubanGroovyFilterTest extends TestCaseBase {
 		groovyFilter.analysis(website);
 		log.trace(profile);
 	}
+	
+	@Test
+	public void testAnalysis2() {
+		Website website = new AnalysiseWebsite();
+		Profile profile = new AnalysiseProfile();
+		profile.setUrl("http://www.douban.com/people/2239880/");
+		website.setProfile(profile);
+		log.trace(profile);
+		groovyFilter.analysis(website);
+		log.trace(profile);
+	}
+	
+	@Test
+	public void testAnalysis3() {
+		Website website = new AnalysiseWebsite();
+		Profile profile = new AnalysiseProfile();
+		profile.setUrl("http://www.douban.com/people/EagerYuan/");
+		website.setProfile(profile);
+		groovyFilter.analysis(website);
+		log.trace(profile);
+	}
 
 	@Test
 	public void testIsEnsure() {
