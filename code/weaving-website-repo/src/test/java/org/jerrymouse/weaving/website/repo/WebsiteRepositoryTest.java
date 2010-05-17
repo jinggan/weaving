@@ -1,7 +1,5 @@
 package org.jerrymouse.weaving.website.repo;
 
-import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,7 +39,7 @@ public class WebsiteRepositoryTest extends TestCaseBase {
 
 	@Test
 	public void testPut() {
-		String key = websiteRepository.put(null, getWebsite());
+		String key = websiteRepository.put(getWebsite());
 		log.trace(key);
 		Website website = websiteRepository.get(key);
 		log.trace(website);

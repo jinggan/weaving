@@ -5,8 +5,8 @@ import javax.annotation.Resource;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.jerrymouse.jsa4j.db.kv.DB;
+import org.jerrymouse.jsa4j.db.kv.Indexer;
 import org.jerrymouse.jsa4j.db.kv.JsonUtil;
-import org.jerrymouse.jsa4j.db.kv.KeyMaker;
 import org.jerrymouse.jsa4j.db.kv.Repository;
 import org.jerrymouse.weaving.model.Website;
 import org.jerrymouse.weaving.website.repo.model.WebsiteEntity;
@@ -18,14 +18,12 @@ public class WebsiteRepository {
 	@Resource
 	private DB db;
 	private static String repoPrefix = "webisteRepo";
-	// private static String indexPrefix = "webisteRepoUrl";
 	private Repository repository;
 	private JsonUtil<WebsiteEntity> jsonUtil = new JsonUtil<WebsiteEntity>();
 	@Resource
 	private EntityUtils entityUtils;
 	private Log log = LogFactory.getLog(WebsiteRepository.class);
 
-	// private Indexer indexer;
 	public Repository getRepository() {
 		if (repository == null)
 			repository = new Repository(repoPrefix, db);
@@ -42,15 +40,26 @@ public class WebsiteRepository {
 		return websiteEntity;
 	}
 
-	// private Website getFromUrl(String url) {
-	// return null;
-	// }
-
+	/**
+	 * key为url
+	 * 
+	 * @param key
+	 * @param website
+	 * @return
+	 */
 	public String put(String key, Website website) {
 		WebsiteEntity websiteEntity = entityUtils.copy(website);
 		String json = jsonUtil.toJson(websiteEntity);
 		log.trace(json);
-		return getRepository().put(key, json);
+		key = getRepository().put(key, json);
+		return key;
 	}
 
+	public String put(Website website) {
+		WebsiteEntity websiteEntity = entityUtils.copy(website);
+		String json = jsonUtil.toJson(websiteEntity);
+		log.trace(json);
+		String key = getRepository().put(website.getProfile().getUrl(), json);
+		return key;
+	}
 }
