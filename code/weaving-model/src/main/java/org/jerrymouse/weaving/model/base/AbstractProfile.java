@@ -7,7 +7,7 @@ import java.util.Map;
 import org.apache.commons.beanutils.BeanUtils;
 import org.jerrymouse.weaving.model.Profile;
 
-public abstract class AbstractProfile implements Profile{
+public abstract class AbstractProfile implements Profile {
 
 	/**
 	 * 头像链接s
@@ -38,6 +38,17 @@ public abstract class AbstractProfile implements Profile{
 	 * 用户名，一般可读
 	 */
 	protected String username;
+	protected String host;
+
+	@Override
+	public String getHost() {
+		return host;
+	}
+
+	@Override
+	public void setHost(String host) {
+		this.host = host;
+	}
 
 	public List<String> getAvatarLinks() {
 		return avatarLinks;
@@ -70,19 +81,24 @@ public abstract class AbstractProfile implements Profile{
 	public void setEmails(List<String> emails) {
 		this.emails = emails;
 	}
+
 	public void setId(String id) {
 		this.id = id;
 	}
+
 	public void setPersonInfomations(Map<String, String> personInfomations) {
 		this.personInfomations = personInfomations;
 	}
+
 	public void setUrl(String url) {
 		this.url = url;
 	}
 
 	public void setUsername(String username) {
 		this.username = username;
-	}@Override
+	}
+
+	@Override
 	public String toString() {
 		try {
 			return BeanUtils.describe(this).toString();

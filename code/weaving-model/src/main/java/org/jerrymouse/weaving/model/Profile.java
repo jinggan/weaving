@@ -41,6 +41,7 @@ public interface Profile {
 	// private Map<String, String> personInfomations;
 
 	public String getUrl();
+	public String getHost();
 
 	public String getUsername();
 
@@ -53,6 +54,6 @@ public interface Profile {
 	public void setPersonInfomations(Map<String, String> personInfomations);
 
 	public void setUrl(String url);
-
+	public void setHost(String host);
 	public void setUsername(String username);
 }
