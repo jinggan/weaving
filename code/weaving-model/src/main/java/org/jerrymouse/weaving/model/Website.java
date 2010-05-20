@@ -16,5 +16,5 @@ public interface Website {
 	public void setFeeds(Feeds feeds);
 
 	public void setProfile(Profile profile);
-
+	
 }

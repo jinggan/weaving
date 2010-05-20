@@ -63,5 +63,4 @@ public abstract class AbstractWebsite implements Website {
 		}
 		return super.toString();
 	}
-
 }
