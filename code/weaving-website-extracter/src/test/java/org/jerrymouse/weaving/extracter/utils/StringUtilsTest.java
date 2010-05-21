@@ -17,7 +17,7 @@ public class StringUtilsTest extends TestCaseBase {
 		String host = stringUtils
 				.getHost("http://www.douban.com/people/yankay/");
 		log.trace(host);
-		assertEquals("douban.com", host);
+		assertEquals("www.douban.com", host);
 	}
 
 }

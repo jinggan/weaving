@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import org.jerrymouse.weaving.model.Connections;
 import org.jerrymouse.weaving.model.Profile;
 import org.jerrymouse.weaving.model.Website;
+import org.jerrymouse.weaving.test.TestCaseBase;
 import org.jerrymouse.weaving.website.repo.model.ConnectionsEntity;
 import org.jerrymouse.weaving.website.repo.model.ProfileEntity;
 import org.jerrymouse.weaving.website.repo.model.WebsiteEntity;
