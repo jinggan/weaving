@@ -22,6 +22,13 @@
 					<value>classpath:META-INF/scripts/extracter/doubanProfile.groovy
 					</value>
 				</entry>
+				<entry>
+					<key>
+						<value>googleProfile</value>
+					</key>
+					<value>classpath:META-INF/scripts/extracter/googleProfile.groovy
+					</value>
+				</entry>
 			</map>
 		</property>
 	</bean>

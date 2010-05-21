@@ -1,11 +1,7 @@
 package org.jerrymouse.weaving.extracter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.annotation.Resource;
 
-import org.jerrymouse.weaving.extracter.filer.ExtractFilter;
 import org.jerrymouse.weaving.extracter.filer.ExtractFilterManager;
 import org.jerrymouse.weaving.extracter.filer.ExtractPlan;
 import org.jerrymouse.weaving.model.Website;
