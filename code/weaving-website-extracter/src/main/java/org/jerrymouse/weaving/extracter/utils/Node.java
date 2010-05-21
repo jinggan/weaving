@@ -1,6 +1,5 @@
 package org.jerrymouse.weaving.extracter.utils;
 
-import org.springframework.stereotype.Component;
 
 public class Node {
 	private org.w3c.dom.Node node;
@@ -36,4 +35,5 @@ public class Node {
 			return null;
 		return r.trim();
 	}
+
 }

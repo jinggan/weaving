@@ -15,8 +15,8 @@ def boolean isEnsure(){
 	true;
 }
 
-def boolean match(String url){
-	stringUtils.match(url, "http://www.douban.com/people/");
+def boolean match(Website website){
+	stringUtils.match(website, "http://www.douban.com/people/");
 }
 
 def analysis(Website webSite){
@@ -25,7 +25,7 @@ def analysis(Website webSite){
 	}
 	webSite.profile.id=getIdFromUrl(webSite.profile.url);
 	webSite.profile.host=stringUtils.getHost(webSite.profile.url);
-	String htmlContent = eye.see(new URL(profile.getUrl()));
+	String htmlContent = eye.see(new URL(webSite.profile.url));
 	if (htmlContent == null)
 		return;
 	webSite.profile.username=getUsernameFromContent(htmlContent);
@@ -42,19 +42,19 @@ def String getIdFromUrl(String url) {
 		
 
 def String getBigAvatarLinks(String htmlContent) {
-	String xpath = "/html/body/div[2]/div[2]/div/div[2]/div/table/tbody/tr[2]/td[2]/img";
+	String xpath = "/html/body/div[2]/div[2]/div/div[2]/div/table/tbody/tr[2]/td[2]/img".toUpperCase();
 	Node node = domUtils.getSingleNodeFromXpath(htmlContent, xpath);
 	return node.getAtrribute("src");
 }
 
 def String getUsernameFromContent(String htmlContent) {
-	String xpath = "/html/head/title";
+	String xpath = "/html/head/title".toUpperCase();
 	Node node = domUtils.getSingleNodeFromXpath(htmlContent, xpath);
 	node.getTextContent();
 }
 
 def String getSmallAvatarLinks(String htmlContent) {
-	String xpath = "/html/body/div[2]/div[2]/div/div/div/div/a/img";
+	String xpath = "/html/body/div[2]/div[2]/div/div/div/div/a/img".toUpperCase();
 	Node node = domUtils.getSingleNodeFromXpath(htmlContent, xpath);
 	node.getAtrribute("src");
 }

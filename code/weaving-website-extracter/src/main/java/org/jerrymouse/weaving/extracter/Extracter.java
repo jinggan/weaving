@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 
 import org.jerrymouse.weaving.extracter.filer.ExtractFilter;
 import org.jerrymouse.weaving.extracter.filer.ExtractFilterManager;
+import org.jerrymouse.weaving.extracter.filer.ExtractPlan;
 import org.jerrymouse.weaving.model.Website;
 import org.jerrymouse.weaving.model.analysis.AnalysiseProfile;
 import org.jerrymouse.weaving.model.analysis.AnalysiseWebsite;
@@ -22,8 +23,6 @@ import org.springframework.stereotype.Component;
 public class Extracter {
 	@Resource
 	private ExtractFilterManager filterManager;
-	@Resource
-	private UrlGeter urlGeter;
 
 	/**
 	 * 根据一个URL，挖出其相应的WebSite信息。 会更新存储信息
@@ -32,7 +31,6 @@ public class Extracter {
 	 * @return
 	 */
 	public Website extract(String url) {
-		url = urlGeter.getProfileUrl(url);
 		AnalysiseWebsite site = new AnalysiseWebsite();
 		site.setProfile(new AnalysiseProfile());
 		site.getProfile().setUrl(url);
@@ -40,19 +38,10 @@ public class Extracter {
 	}
 
 	public Website extract(Website website) {
-		for (ExtractFilter f : createFilterList(website.getProfile().getUrl())) {
-			f.analysis(website);
-		}
+		ExtractPlan extractPlan = filterManager.createPlan(website);
+		extractPlan.execute(website);
 		return website;
 	}
 
-	private List<ExtractFilter> createFilterList(String url) {
-		List<ExtractFilter> filters = new ArrayList<ExtractFilter>();
-		for (ExtractFilter f : filterManager.getFilters()) {
-			if (f.match(url))
-				filters.add(f);
-		}
-		return filters;
-	}
 
 }

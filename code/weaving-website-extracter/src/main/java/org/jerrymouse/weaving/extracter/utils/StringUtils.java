@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.jerrymouse.weaving.model.Website;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -66,7 +67,12 @@ public class StringUtils {
 		} else {
 			return url.contains(pattern.trim());
 		}
+	}
 
+	public boolean match(Website website, String pattern) {
+		if (website.getProfile() != null)
+			return match(website.getProfile().getUrl(), pattern);
+		return false;
 	}
 
 }

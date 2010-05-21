@@ -37,18 +37,6 @@ public abstract class AbstractWebsite implements Website {
 		this.feeds = feeds;
 	}
 
-	public void setUrl(String url) {
-		if (profile != null) {
-			profile.setUrl(url);
-		}
-	}
-
-	public String getUrl() {
-		if (profile != null) {
-			return profile.getUrl();
-		}
-		return null;
-	}
 
 	@Override
 	public String toString() {

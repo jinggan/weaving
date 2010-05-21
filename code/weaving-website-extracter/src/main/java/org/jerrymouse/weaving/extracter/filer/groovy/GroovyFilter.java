@@ -36,22 +36,22 @@ public class GroovyFilter implements ExtractFilter {
 		return result;
 	}
 
+	public void setEngine(ScriptEngine engine) {
+		this.engine = engine;
+	}
+
 	@Override
-	public boolean match(String url) {
+	public boolean match(Website website) {
 		Boolean result = null;
 		try {
 			Invocable inv = (Invocable) engine;
-			result = (Boolean) inv.invokeFunction("match", url);
+			result = (Boolean) inv.invokeFunction("match", website);
 		} catch (ScriptException e) {
 			e.printStackTrace();
 		} catch (NoSuchMethodException e) {
 			e.printStackTrace();
 		}
 		return result;
-	}
-
-	public void setEngine(ScriptEngine engine) {
-		this.engine = engine;
 	}
 
 }

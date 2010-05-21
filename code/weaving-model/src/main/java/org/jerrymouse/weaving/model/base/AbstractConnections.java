@@ -58,7 +58,9 @@ public abstract class AbstractConnections implements Connections {
 
 	public void setSelfLinks(List<String> selfLinks) {
 		this.selfLinks = selfLinks;
-	}@Override
+	}
+
+	@Override
 	public String toString() {
 		try {
 			return BeanUtils.describe(this).toString();

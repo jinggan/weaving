@@ -24,7 +24,8 @@ public class GoogleSocialGraphFilterTest extends TestCaseBase {
 		person = new AnalysisePerson();
 		AnalysiseWebsite website = new AnalysiseWebsite();
 		website.setProfile(new AnalysiseProfile());
-		website.setUrl("https://www.google.com/profiles/KaiYanNju");
+		website.getProfile()
+				.setUrl("https://www.google.com/profiles/KaiYanNju");
 		List<Website> websites = new ArrayList<Website>();
 		websites.add(website);
 		person.setWebsites(websites);

@@ -27,11 +27,16 @@ public class GroovyFilterManager {
 	@Resource
 	private StringUtils stringUtils;
 	private static Log log = LogFactory.getLog(GroovyFilterManager.class);
+	List<GroovyFilter> groovyFilters;
 
 	public List<GroovyFilter> getGroovyFilters() {
-		List<GroovyFilter> groovyFilters = new ArrayList<GroovyFilter>();
-		for (String name : filterRepository.getScripts().keySet()) {
-			groovyFilters.add(getGroovyFilter(name));
+		if (filterRepository.cache == null)
+			groovyFilters = null;
+		if (groovyFilters == null) {
+			groovyFilters = new ArrayList<GroovyFilter>();
+			for (String name : filterRepository.getScripts().keySet()) {
+				groovyFilters.add(getGroovyFilter(name));
+			}
 		}
 		return groovyFilters;
 	}

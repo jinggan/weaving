@@ -55,19 +55,19 @@ public class DoubanProfileFilter implements ExtractFilter {
 	}
 
 	private String getBigAvatarLinks(String htmlContent) {
-		String xpath = "/html/body/div[2]/div[2]/div/div[2]/div/table/tbody/tr[2]/td[2]/img";
+		String xpath = "/html/body/div[2]/div[2]/div/div[2]/div/table/tbody/tr[2]/td[2]/img".toUpperCase();
 		Node node = domUtils.getSingleNodeFromXpath(htmlContent, xpath);
 		return node.getAtrribute("src");
 	}
 
 	private String getUsernameFromContent(String htmlContent) {
-		String xpath = "/html/body/div[2]/div[2]/div/div/div/div[2]/h1";
+		String xpath = "/html/body/div[2]/div[2]/div/div/div/div[2]/h1".toUpperCase();
 		Node node = domUtils.getSingleNodeFromXpath(htmlContent, xpath);
 		return node.getTextContent();
 	}
 
 	private String getIdFromUrl(String url) {
-		return stringUtils.urlParser(url, "douban.com/people/{id}");
+		return stringUtils.urlParser(url, "douban.com/people/{id}".toUpperCase());
 	}
 
 	@Override
@@ -75,15 +75,16 @@ public class DoubanProfileFilter implements ExtractFilter {
 		return true;
 	}
 
-	@Override
-	public boolean match(String url) {
-		return stringUtils.match(url, "http://www.douban.com/people/");
-	}
 
 	private String getSmallAvatarLinks(String htmlContent) {
 		String xpath = "/html/body/div[2]/div[2]/div/div/div/div/a/img";
 		Node node = domUtils.getSingleNodeFromXpath(htmlContent, xpath);
 		return node.getAtrribute("src");
+	}
+
+	@Override
+	public boolean match(Website website) {
+		return stringUtils.match(website, "http://www.douban.com/people/");
 	}
 
 }

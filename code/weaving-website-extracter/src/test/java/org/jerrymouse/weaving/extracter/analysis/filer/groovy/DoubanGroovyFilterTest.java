@@ -65,8 +65,8 @@ public class DoubanGroovyFilterTest extends TestCaseBase {
 
 	@Test
 	public void testMatch() {
-		log.trace(groovyFilter.match("http://www.douban.com/people/yankay/"));
-		log.trace(groovyFilter.match("http://www.douban.com/peopdsle/yankay/"));
+//		log.trace(groovyFilter.match("http://www.douban.com/people/yankay/"));
+//		log.trace(groovyFilter.match("http://www.douban.com/peopdsle/yankay/"));
 
 	}
 

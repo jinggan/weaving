@@ -25,8 +25,7 @@ public class WeavingTest extends TestCaseBase {
 
 	@Test
 	public void testExtractWebsite() {
-		Website website = weaving
-				.extractWebsite("http://www.yankay.com/nosql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%B0%88v0-2/");
+		Website website = weaving.extractWebsite("http://www.yankay.com");
 		log.trace(website.toString());
 	}
 
