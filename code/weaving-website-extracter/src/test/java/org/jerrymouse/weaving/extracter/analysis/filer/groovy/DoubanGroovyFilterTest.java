@@ -2,10 +2,13 @@ package org.jerrymouse.weaving.extracter.analysis.filer.groovy;
 
 import javax.annotation.Resource;
 
-import org.jerrymouse.weaving.analysis.model.AnalysiseProfile;
-import org.jerrymouse.weaving.analysis.model.AnalysiseWebsite;
+import org.jerrymouse.weaving.extracter.filer.groovy.GroovyFilter;
+import org.jerrymouse.weaving.extracter.filer.groovy.GroovyFilterManager;
+import org.jerrymouse.weaving.extracter.filer.groovy.GroovyFilterRepository;
 import org.jerrymouse.weaving.model.Profile;
 import org.jerrymouse.weaving.model.Website;
+import org.jerrymouse.weaving.model.analysis.AnalysiseProfile;
+import org.jerrymouse.weaving.model.analysis.AnalysiseWebsite;
 import org.jerrymouse.weaving.test.TestCaseBase;
 import org.junit.Before;
 import org.junit.Test;

@@ -15,14 +15,14 @@ import org.apache.commons.logging.LogFactory;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.map.ObjectMapper;
-import org.jerrymouse.weaving.analysis.model.AnalysiseFeeds;
-import org.jerrymouse.weaving.analysis.model.AnalysiseProfile;
-import org.jerrymouse.weaving.analysis.model.AnalysiseWebsite;
 import org.jerrymouse.weaving.digger.filter.Filter;
 import org.jerrymouse.weaving.eye.Eye;
 import org.jerrymouse.weaving.model.Person;
 import org.jerrymouse.weaving.model.Profile;
 import org.jerrymouse.weaving.model.Website;
+import org.jerrymouse.weaving.model.analysis.AnalysiseFeeds;
+import org.jerrymouse.weaving.model.analysis.AnalysiseProfile;
+import org.jerrymouse.weaving.model.analysis.AnalysiseWebsite;
 import org.springframework.stereotype.Component;
 
 @Component

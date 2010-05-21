@@ -25,7 +25,11 @@
 			<artifactId>weaving-eye</artifactId>
 			<version>${version}</version>
 		</dependency>
-
+	<dependency>
+			<groupId>org.jerrymouse</groupId>
+			<artifactId>weaving-repository</artifactId>
+			<version>${version}</version>
+		</dependency>
 		<!-- spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>

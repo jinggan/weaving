@@ -5,9 +5,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jerrymouse.weaving.analysis.model.AnalysiseProfile;
-import org.jerrymouse.weaving.extracter.analysis.filer.utils.Node;
-import org.jerrymouse.weaving.extracter.analysis.filer.utils.StringUtils;
+import org.jerrymouse.weaving.model.analysis.AnalysiseProfile;
+import org.jerrymouse.weaving.extracter.utils.Node;
+import org.jerrymouse.weaving.extracter.utils.StringUtils;
 import org.jerrymouse.weaving.model.Profile;
 import org.jerrymouse.weaving.model.Website;
 
@@ -20,9 +20,8 @@ def boolean match(String url){
 }
 
 def analysis(Website webSite){
-	Profile profile=webSite.profile;
-	if(profile==null){
-		webSite.profile=new AnalysiseProfile();
+	if(webSite.profile==null){
+		return;
 	}
 	webSite.profile.id=getIdFromUrl(webSite.profile.url);
 	webSite.profile.host=stringUtils.getHost(webSite.profile.url);
@@ -30,10 +29,11 @@ def analysis(Website webSite){
 	if (htmlContent == null)
 		return;
 	webSite.profile.username=getUsernameFromContent(htmlContent);
-	List<String> avatarLinks = new ArrayList<String>();
-	avatarLinks.add(getSmallAvatarLinks(htmlContent));
-	avatarLinks.add(getBigAvatarLinks(htmlContent));
-	profile.setAvatarLinks(avatarLinks);
+	if(webSite.profile.avatarLinks==null){
+		webSite.profile.avatarLinks=new ArrayList<String>();
+	}
+	webSite.profile.avatarLinks.add(getSmallAvatarLinks(htmlContent));
+	webSite.profile.avatarLinks.add(getBigAvatarLinks(htmlContent));
 }
 
 def String getIdFromUrl(String url) {

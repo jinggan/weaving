@@ -171,8 +171,9 @@
 		<module>weaving-model</module>
 		<module>weaving-eye</module>
 		<module>weaving-website-extracter</module>
-    <module>weaving-website-repo</module>
-    <module>weaving-api</module>
-    <module>weaving-person-digger</module>
+		<module>weaving-repository</module>
+		<module>weaving-api</module>
+		<module>weaving-person-digger</module>
+    <module>weaving-web</module>
   </modules>
 </project>

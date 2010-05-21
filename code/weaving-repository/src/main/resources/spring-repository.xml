@@ -8,22 +8,5 @@
 	<context:annotation-config />
 
 	<context:component-scan base-package="org.jerrymouse" />
-	<bean name="groovyFilterRepository"
-		class="org.jerrymouse.weaving.extracter.filer.groovy.GroovyFilterRepository">
-		<property name="db">
-			<ref bean="db" />
-		</property>
-		<property name="localScripts">
-			<map>
-				<entry>
-					<key>
-						<value>doubanProfile</value>
-					</key>
-					<value>classpath:META-INF/scripts/extracter/doubanProfile.groovy
-					</value>
-				</entry>
-			</map>
-		</property>
-	</bean>
 </beans>
   

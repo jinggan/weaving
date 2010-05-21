@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import javax.annotation.Resource;
 
+import org.jerrymouse.weaving.extracter.filer.groovy.GroovyFilter;
+import org.jerrymouse.weaving.extracter.filer.groovy.GroovyFilterManager;
 import org.jerrymouse.weaving.test.TestCaseBase;
 import org.junit.Before;
 import org.junit.Test;
