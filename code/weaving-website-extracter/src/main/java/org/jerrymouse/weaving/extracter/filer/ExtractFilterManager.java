@@ -1,6 +1,5 @@
 package org.jerrymouse.weaving.extracter.filer;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -11,8 +10,6 @@ import org.jerrymouse.weaving.extracter.filer.java.CommonFeedFilter;
 import org.jerrymouse.weaving.extracter.filer.java.CommonProfileFilter;
 import org.jerrymouse.weaving.model.Website;
 import org.springframework.stereotype.Component;
-
-import com.sun.net.httpserver.Filter;
 
 @Component
 public class ExtractFilterManager {
@@ -36,7 +33,7 @@ public class ExtractFilterManager {
 	// }
 
 	public ExtractPlan createPlan(Website website) {
-		ExtractPlan extractPlan=new ExtractPlan();
+		ExtractPlan extractPlan = new ExtractPlan();
 		boolean hasEnsure = false;
 		for (ExtractFilter extractFilter : groovyFilterManager
 				.getGroovyFilters()) {
@@ -46,7 +43,7 @@ public class ExtractFilterManager {
 					hasEnsure = true;
 			}
 		}
-		if(!hasEnsure){
+		if (!hasEnsure) {
 			extractPlan.add(commonProfileFilter);
 			extractPlan.add(commonConnectionFilter);
 		}

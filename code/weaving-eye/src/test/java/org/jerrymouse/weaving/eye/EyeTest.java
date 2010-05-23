@@ -26,7 +26,7 @@ public class EyeTest {
 		log.trace("begin");
 		String content = eye.see(new URL("http://yankay.com"));
 		log.trace(content);
-		String content2 = eye.see(new URL("http://yankay.com"));
+		String content2 = eye.see(new URL("http://www.douban.com/people/yankay/"));
 		log.trace(content2);
 	}
 }

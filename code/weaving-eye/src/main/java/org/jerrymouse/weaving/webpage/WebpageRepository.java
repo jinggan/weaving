@@ -18,7 +18,8 @@ public class WebpageRepository {
 
 	public String get(URL url) {
 		String key = url.toString();
-		return getRepository().get(key);
+		String webContent = getRepository().get(key);
+		return webContent;
 	}
 
 	private Repository getRepository() {
@@ -29,6 +30,8 @@ public class WebpageRepository {
 	}
 
 	public void put(URL url, String webContent) {
+		if (webContent == null)
+			webContent = "null";
 		String key = url.toString();
 		getRepository().put(key, webContent);
 	}

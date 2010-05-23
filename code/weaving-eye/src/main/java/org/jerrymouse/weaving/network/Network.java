@@ -10,12 +10,16 @@ import java.net.URL;
 import javax.annotation.Resource;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.lf5.viewer.LogFactor5Dialog;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Network {
 	@Resource(name = "autoProxy")
 	private AutoProxy autoProxy;
+	private static Log log = LogFactory.getLog(Network.class);
 
 	public String get(URL url) {
 		HttpURLConnection connection = null;
@@ -48,9 +52,9 @@ public class Network {
 			inputStream = connection.getInputStream();
 			content = IOUtils.toString(inputStream);
 		} catch (ProtocolException e) {
-			e.printStackTrace();
+			log.warn(e.getMessage());
 		} catch (IOException e) {
-			e.printStackTrace();
+			log.warn(e.getMessage());
 		} finally {
 			if (inputStream != null)
 				IOUtils.closeQuietly(inputStream);

@@ -42,6 +42,7 @@ public class GoogleSocialGraphFilter implements Filter {
 	private void digme(Person person) {
 		String json = getJson(person);
 		List<Website> websites = analyseJson(json);
+		person.getWebsites().addAll(websites);
 	}
 
 	private List<Website> analyseJson(String json) {

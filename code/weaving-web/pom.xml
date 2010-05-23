@@ -113,6 +113,12 @@
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.tuckey</groupId>
+			<artifactId>urlrewritefilter</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+
 		<!-- geronimo -->
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>

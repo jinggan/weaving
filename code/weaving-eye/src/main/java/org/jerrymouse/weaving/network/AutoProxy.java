@@ -15,7 +15,6 @@ public class AutoProxy {
 
 	public Proxy getProxy() {
 		if (proxy == null) {
-			proxy.type();
 			proxy = new Proxy(Type.SOCKS, new InetSocketAddress(
 					proxyHost, proxyport));
 		}

@@ -9,14 +9,13 @@ import javax.xml.transform.TransformerException;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.xpath.XPathAPI;
 import org.cyberneko.html.parsers.DOMParser;
 import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
-
-import com.sun.org.apache.xpath.internal.XPathAPI;
 
 @Component
 public class DomUtils {
@@ -31,8 +30,14 @@ public class DomUtils {
 
 	public List<Node> getNodesFromXpath(Document doc, String xpath) {
 		xpath = xpath.toUpperCase();
+		return getNamedNodesFromXpath(doc, xpath);
+	}
+
+	public List<Node> getNamedNodesFromXpath(Document doc, String xpath) {
 		List<Node> analysisNodes;
 		analysisNodes = new ArrayList<Node>();
+		if (doc == null)
+			return analysisNodes;
 		try {
 			NodeList nodes = XPathAPI.selectNodeList(doc, xpath);
 			if (nodes == null)
@@ -54,6 +59,8 @@ public class DomUtils {
 		try {
 			DOMParser dom = new DOMParser();
 			dom.setFeature("http://xml.org/sax/features/namespaces", false);
+			if (htmlContent == null)
+				return null;
 			dom.parse(new InputSource(new StringReader(htmlContent)));
 			return dom.getDocument();
 		} catch (SAXException e) {
@@ -66,5 +73,9 @@ public class DomUtils {
 
 	public Node getSingleNodeFromXpath(String htmlContent, String xpath) {
 		return getSingleNodeFromXpath(getDocument(htmlContent), xpath);
+	}
+
+	public List<Node> getNamedNodesFromXpath(String htmlContent, String xpath) {
+		return getNamedNodesFromXpath(getDocument(htmlContent), xpath);
 	}
 }

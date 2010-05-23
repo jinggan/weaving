@@ -17,10 +17,10 @@ public class Eye {
 
 	public String see(URL url) {
 		String webContent = webpageRepository.get(url);
+		if ("null".equals(webContent))
+			return null;
 		if (webContent == null) {
 			webContent = network.get(url);
-			if (webContent == null)
-				return null;
 			webpageRepository.put(url, webContent);
 		}
 		return webContent;

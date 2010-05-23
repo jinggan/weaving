@@ -33,7 +33,10 @@ public class GoogleSocialGraphFilterTest extends TestCaseBase {
 
 	@Test
 	public void testDig() {
+		log.trace(person.getWebsites().size());
 		googleSocialGraphFilter.dig(person);
+		log.trace(person.getWebsites().size());
+
 	}
 
 }
