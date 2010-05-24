@@ -7,7 +7,6 @@
      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
 	<bean id="dbManager" class="org.jerrymouse.jsa4j.db.kv.derby.DerbyDBManager" />
-	<bean id="dbManager2" class="org.jerrymouse.jsa4j.db.kv.gae.GaeDBManager" />
 
 	<bean id="db" factory-bean="dbManager" factory-method="getDB"></bean>
 </beans>

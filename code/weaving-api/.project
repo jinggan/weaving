@@ -1,13 +1,7 @@
 <projectDescription>
   <name>weaving-api</name>
   <comment>NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
-  <projects>
-    <project>weaving-eye</project>
-    <project>weaving-model</project>
-    <project>weaving-person-digger</project>
-    <project>weaving-repository</project>
-    <project>weaving-website-extracter</project>
-  </projects>
+  <projects/>
   <buildSpec>
     <buildCommand>
       <name>org.eclipse.jdt.core.javabuilder</name>

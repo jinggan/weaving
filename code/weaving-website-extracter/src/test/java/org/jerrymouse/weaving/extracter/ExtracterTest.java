@@ -9,17 +9,17 @@ import org.jerrymouse.weaving.model.Website;
 import org.jerrymouse.weaving.test.TestCaseBase;
 import org.junit.Test;
 
-public class AnalysiserTest extends TestCaseBase {
+public class ExtracterTest extends TestCaseBase {
 
 	private String url = "http://www.douban.com/people/yankay/";
 	@Resource
-	private Extracter analysiser;
+	private Extracter extracter;
 
-	private static Log log = LogFactory.getLog(AnalysiserTest.class);
+	private static Log log = LogFactory.getLog(ExtracterTest.class);
 
 	@Test
 	public void testAnalysis() {
-		Website website = analysiser.extract(url);
+		Website website = extracter.extract(url);
 		log.trace(website.toString());
 	}
 

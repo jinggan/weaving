@@ -4,9 +4,11 @@ import javax.annotation.Resource;
 
 import org.jerrymouse.weaving.extracter.filer.ExtractFilterManager;
 import org.jerrymouse.weaving.extracter.filer.ExtractPlan;
+import org.jerrymouse.weaving.extracter.utils.AnalysiseModelUtils;
 import org.jerrymouse.weaving.model.Website;
 import org.jerrymouse.weaving.model.analysis.AnalysiseProfile;
 import org.jerrymouse.weaving.model.analysis.AnalysiseWebsite;
+import org.jerrymouse.weaving.website.repo.WebsiteRepository;
 import org.springframework.stereotype.Component;
 
 /**
@@ -20,6 +22,12 @@ public class Extracter {
 	@Resource
 	private ExtractFilterManager filterManager;
 
+	@Resource
+	private WebsiteRepository repository;
+
+	@Resource
+	private AnalysiseModelUtils analysiseModelUtils;
+
 	/**
 	 * 根据一个URL，挖出其相应的WebSite信息。 会更新存储信息
 	 * 
@@ -27,17 +35,36 @@ public class Extracter {
 	 * @return
 	 */
 	public Website extract(String url) {
-		AnalysiseWebsite site = new AnalysiseWebsite();
-		site.setProfile(new AnalysiseProfile());
-		site.getProfile().setUrl(url);
-		return extract(site);
+		Website site = getWebsite(url);
+		return analyse(site);
 	}
 
 	public Website extract(Website website) {
-		ExtractPlan extractPlan = filterManager.createPlan(website);
-		extractPlan.execute(website);
-		return website;
+		getWebsite(website.getProfile().getUrl(), website);
+		return analyse(website);
 	}
 
+	private void getWebsite(String url,final Website analysiseWebsite) {
+		Website website = repository.get(url);
+		if (website == null) {
+			analysiseWebsite.setProfile(new AnalysiseProfile());
+			analysiseWebsite.getProfile().setUrl(url);
+		} else {
+			analysiseModelUtils.copy(website, analysiseWebsite);
+		}
+	}
+
+	private Website getWebsite(String url) {
+		AnalysiseWebsite analysiseWebsite = new AnalysiseWebsite();
+		getWebsite(url, analysiseWebsite);
+		return analysiseWebsite;
+	}
+
+	public Website analyse(Website website) {
+		ExtractPlan extractPlan = filterManager.createPlan(website);
+		extractPlan.execute(website);
+		repository.put(website);
+		return website;
+	}
 
 }

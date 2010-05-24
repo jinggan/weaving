@@ -1,9 +1,14 @@
-<project-modules id="moduleCoreId" project-version="2.0">
-  <wb-module deploy-name="weaving-web">
-    <property name="context-root" value="weaving-web"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+  <wb-module deploy-name="weaving-web-gae">
+    <property name="context-root" value="weaving-web-gae"/>
+    <wb-resource deploy-path="/" source-path="src/main/webapp"/>
     <wb-resource deploy-path="/" source-path="src/main/webapp"/>
     <property name="java-output-path" value="/target/classes"/>
     <dependent-module archiveName="aopalliance-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/aopalliance/aopalliance/1.0/aopalliance-1.0.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="appengine-api-1.0-sdk-1.3.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/com/google/appengine/appengine-api-1.0-sdk/1.3.4/appengine-api-1.0-sdk-1.3.4.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
     <dependent-module archiveName="commons-beanutils-1.8.3.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/commons-beanutils/commons-beanutils/1.8.3/commons-beanutils-1.8.3.jar">
@@ -21,13 +26,7 @@
     <dependent-module archiveName="commons-logging-1.1.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
-    <dependent-module archiveName="derby-10.5.3.0_1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/apache/derby/derby/10.5.3.0_1/derby-10.5.3.0_1.jar">
-      <dependency-type>uses</dependency-type>
-    </dependent-module>
     <dependent-module archiveName="dom4j-1.6.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar">
-      <dependency-type>uses</dependency-type>
-    </dependent-module>
-    <dependent-module archiveName="geronimo-servlet_2.5_spec-1.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/apache/geronimo/specs/geronimo-servlet_2.5_spec/1.2/geronimo-servlet_2.5_spec-1.2.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
     <dependent-module archiveName="groovy-all-1.7.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/codehaus/groovy/groovy-all/1.7.2/groovy-all-1.7.2.jar">
@@ -45,13 +44,19 @@
     <dependent-module archiveName="jsa4j-db-kv-1.0-alpha-2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/jerrymouse/jsa4j-db-kv/1.0-alpha-2/jsa4j-db-kv-1.0-alpha-2.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
-    <dependent-module archiveName="jsa4j-db-kv-derby-1.0-alpha-2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/jerrymouse/jsa4j-db-kv-derby/1.0-alpha-2/jsa4j-db-kv-derby-1.0-alpha-2.jar">
+    <dependent-module archiveName="jsa4j-db-kv-gae-1.0-alpha-2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/jerrymouse/jsa4j-db-kv-gae/1.0-alpha-2/jsa4j-db-kv-gae-1.0-alpha-2.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
     <dependent-module archiveName="jstl-1.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/javax/servlet/jstl/1.2/jstl-1.2.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
     <dependent-module archiveName="log4j-1.2.14.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/log4j/log4j/1.2.14/log4j-1.2.14.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="logback-classic-0.9.15.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/ch/qos/logback/logback-classic/0.9.15/logback-classic-0.9.15.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="logback-core-0.9.15.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/ch/qos/logback/logback-core/0.9.15/logback-core-0.9.15.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
     <dependent-module archiveName="nekohtml-1.9.6.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/nekohtml/nekohtml/1.9.6.2/nekohtml-1.9.6.2.jar">
@@ -64,6 +69,9 @@
       <dependency-type>uses</dependency-type>
     </dependent-module>
     <dependent-module archiveName="sitemesh-2.4.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/opensymphony/sitemesh/2.4.2/sitemesh-2.4.2.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="slf4j-api-1.5.6.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/slf4j/slf4j-api/1.5.6/slf4j-api-1.5.6.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
     <dependent-module archiveName="spring-aop-3.0.2.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/springframework/spring-aop/3.0.2.RELEASE/spring-aop-3.0.2.RELEASE.jar">
@@ -108,22 +116,22 @@
     <dependent-module archiveName="velocity-tools-view-1.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/velocity-tools/velocity-tools-view/1.4/velocity-tools-view-1.4.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
-    <dependent-module archiveName="weaving-api.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/weaving-api/weaving-api">
+    <dependent-module archiveName="weaving-api-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/jerrymouse/weaving-api/1.0/weaving-api-1.0.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
-    <dependent-module archiveName="weaving-eye.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/weaving-eye/weaving-eye">
+    <dependent-module archiveName="weaving-eye-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/jerrymouse/weaving-eye/1.0/weaving-eye-1.0.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
-    <dependent-module archiveName="weaving-model.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/weaving-model/weaving-model">
+    <dependent-module archiveName="weaving-model-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/jerrymouse/weaving-model/1.0/weaving-model-1.0.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
-    <dependent-module archiveName="weaving-person-digger.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/weaving-person-digger/weaving-person-digger">
+    <dependent-module archiveName="weaving-person-digger-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/jerrymouse/weaving-person-digger/1.0/weaving-person-digger-1.0.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
-    <dependent-module archiveName="weaving-repository.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/weaving-repository/weaving-repository">
+    <dependent-module archiveName="weaving-repository-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/jerrymouse/weaving-repository/1.0/weaving-repository-1.0.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
-    <dependent-module archiveName="weaving-website-extracter.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/weaving-website-extracter/weaving-website-extracter">
+    <dependent-module archiveName="weaving-website-extracter-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/jerrymouse/weaving-website-extracter/1.0/weaving-website-extracter-1.0.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
     <dependent-module archiveName="xalan-2.7.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/xalan/xalan/2.7.1/xalan-2.7.1.jar">
@@ -137,5 +145,9 @@
     </dependent-module>
     <wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/java"/>
     <wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
   </wb-module>
 </project-modules>

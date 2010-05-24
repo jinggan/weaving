@@ -47,7 +47,7 @@ public class WebsiteRepository {
 	 * @param website
 	 * @return
 	 */
-	public String put(String key, Website website) {
+	private String put(String key, Website website) {
 		WebsiteEntity websiteEntity = entityUtils.copy(website);
 		String json = jsonUtil.toJson(websiteEntity);
 		log.trace(json);

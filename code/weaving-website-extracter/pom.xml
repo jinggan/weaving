@@ -25,7 +25,7 @@
 			<artifactId>weaving-eye</artifactId>
 			<version>${version}</version>
 		</dependency>
-	<dependency>
+		<dependency>
 			<groupId>org.jerrymouse</groupId>
 			<artifactId>weaving-repository</artifactId>
 			<version>${version}</version>
