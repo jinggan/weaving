@@ -51,7 +51,8 @@ def analysis(Website website){
 def String getIdFromUrl(String url) {
 	stringUtils.urlParser(url, "douban.com/people/{id}");
 }
-		
+
+
 
 def String getBigAvatarLinks(String htmlContent) {
 	String xpath = "/html/body/div[2]/div[2]/div/div[2]/div/table/tbody/tr[2]/td[2]/img".toUpperCase();

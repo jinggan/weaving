@@ -75,4 +75,13 @@ public class StringUtils {
 		return false;
 	}
 
+	public boolean isNumber(String toCheck) {
+		try {
+			Integer.parseInt(toCheck);
+			return true;
+		} catch (NumberFormatException numForEx) {
+			return false;
+		}
+	}
+
 }

@@ -1,3 +1,5 @@
+import com.sun.xml.internal.ws.util.StringUtils;
+
 import org.jerrymouse.weaving.model.Website;
 
 import org.jerrymouse.weaving.model.Website;
@@ -34,6 +36,10 @@ def analysis(Website website){
 	if (htmlContent == null)
 		return;
 	website.profile.username=getUsernameFromContent(htmlContent);
+	if(website.profile.emails==null){
+		website.profile.emails=new ArrayList<String>();
+	}
+	website.profile.emails.add(getEmailFromUsername(website.profile.id));
 	if(website.profile.avatarLinks==null){
 		website.profile.avatarLinks=new ArrayList<String>();
 	}
@@ -59,6 +65,13 @@ def String getUsernameFromContent(String htmlContent) {
 	String xpath = "/html/body/div[5]/div/div[2]/h1/span".toUpperCase();
 	Node node = domUtils.getSingleNodeFromXpath(htmlContent, xpath);
 	node.getTextContent();
+}
+def String getEmailFromUsername(String id) {
+	if(id!=null){
+		if(!stringUtils.isNumber(id))
+			return id+"@gmail.com";
+	}
+	return null;
 }
 
 def String getSmallAvatarLinks(String htmlContent) {
