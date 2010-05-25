@@ -6,7 +6,16 @@
 
 </head>
 <body>
-${persons}
+<form action="#springUrl('/search')"><input type="text" name="q"><input
+	type="submit"></form>
+#foreach( $person in $persons )
+<div><img alt="" src="${person.avatar}"> <span>${person.username}</span>
+<span>${person.email}</span> <br />
+#foreach( $url in ${person.urls} )<a href="${url}"><img
+	src="http://favicongetter.appspot.com/favicon?domain=${url}"></img></a> </div>
+#end 
+<a href="#springUrl('/person')/${person.url}">link</a>
+#end
 <!-- 
 <a
 	href="#springUrl('/api/dig?q=http%3A%2F%2Fwww.google.com%2Fprofiles%2FKaiYanNju&pretty=1')">try dig</a>

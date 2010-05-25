@@ -14,7 +14,6 @@ import org.codehaus.jackson.map.SerializerFactory;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.AbstractView;
 
 public class JsonView extends AbstractView {

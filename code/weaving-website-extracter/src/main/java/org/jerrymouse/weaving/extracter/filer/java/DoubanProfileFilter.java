@@ -16,8 +16,6 @@ import org.jerrymouse.weaving.extracter.utils.StringUtils;
 import org.jerrymouse.weaving.eye.Eye;
 import org.jerrymouse.weaving.model.Profile;
 import org.jerrymouse.weaving.model.Website;
-import org.jerrymouse.weaving.model.analysis.AnalysiseConnections;
-import org.jerrymouse.weaving.model.analysis.AnalysiseProfile;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -38,8 +36,8 @@ public class DoubanProfileFilter implements ExtractFilter {
 	@Override
 	public void analysis(Website website) {
 		try {
-//			if (website.getProfile() == null)
-//				website.setProfile(new AnalysiseProfile());
+			// if (website.getProfile() == null)
+			// website.setProfile(new AnalysiseProfile());
 			Profile profile = website.getProfile();
 			profile.setId(getIdFromUrl(profile.getUrl()));
 			String htmlContent = eye.see(new URL(profile.getUrl()));
@@ -50,9 +48,9 @@ public class DoubanProfileFilter implements ExtractFilter {
 			avatarLinks.add(getSmallAvatarLinks(htmlContent));
 			avatarLinks.add(getBigAvatarLinks(htmlContent));
 			profile.setAvatarLinks(avatarLinks);
-//			if (website.getConnections() == null) {
-//				website.setConnections(new AnalysiseConnections());
-//			}
+			// if (website.getConnections() == null) {
+			// website.setConnections(new AnalysiseConnections());
+			// }
 			if (website.getConnections().getSelfLinks() == null) {
 				website.getConnections().setSelfLinks(new ArrayList<String>());
 			}
@@ -99,7 +97,7 @@ public class DoubanProfileFilter implements ExtractFilter {
 		String xpath = "//A[@target=\"_blank\"]";
 		List<Node> nodes = domUtils.getNamedNodesFromXpath(htmlContent, xpath);
 		for (Node node : nodes) {
-			if(node.getAtrribute("href").contains(node.getTextContent()))
+			if (node.getAtrribute("href").contains(node.getTextContent()))
 				return node.getAtrribute("href");
 		}
 		return null;

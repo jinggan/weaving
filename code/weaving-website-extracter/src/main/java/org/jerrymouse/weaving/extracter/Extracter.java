@@ -20,13 +20,20 @@ import org.springframework.stereotype.Component;
 @Component
 public class Extracter {
 	@Resource
+	private AnalysiseModelUtils analysiseModelUtils;
+
+	@Resource
 	private ExtractFilterManager filterManager;
 
 	@Resource
 	private WebsiteRepository repository;
 
-	@Resource
-	private AnalysiseModelUtils analysiseModelUtils;
+	public Website analyse(Website website) {
+		ExtractPlan extractPlan = filterManager.createPlan(website);
+		extractPlan.execute(website);
+		repository.put(website);
+		return website;
+	}
 
 	/**
 	 * 根据一个URL，挖出其相应的WebSite信息。 会更新存储信息
@@ -44,6 +51,12 @@ public class Extracter {
 		return analyse(website);
 	}
 
+	private Website getWebsite(String url) {
+		AnalysiseWebsite analysiseWebsite = AnalysiseWebsite.getInstance();
+		getWebsite(url, analysiseWebsite);
+		return analysiseWebsite;
+	}
+
 	private void getWebsite(String url, final Website analysiseWebsite) {
 		Website website = repository.get(url);
 		if (website == null) {
@@ -52,19 +65,6 @@ public class Extracter {
 		} else {
 			analysiseModelUtils.copy(website, analysiseWebsite);
 		}
-	}
-
-	private Website getWebsite(String url) {
-		AnalysiseWebsite analysiseWebsite = AnalysiseWebsite.getInstance();
-		getWebsite(url, analysiseWebsite);
-		return analysiseWebsite;
-	}
-
-	public Website analyse(Website website) {
-		ExtractPlan extractPlan = filterManager.createPlan(website);
-		extractPlan.execute(website);
-		repository.put(website);
-		return website;
 	}
 
 }

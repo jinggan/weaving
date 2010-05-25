@@ -14,7 +14,6 @@ import org.jerrymouse.weaving.extracter.utils.DomUtils;
 import org.jerrymouse.weaving.extracter.utils.Node;
 import org.jerrymouse.weaving.eye.Eye;
 import org.jerrymouse.weaving.model.Website;
-import org.jerrymouse.weaving.model.analysis.AnalysiseConnections;
 import org.springframework.stereotype.Component;
 
 @Component

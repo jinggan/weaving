@@ -14,7 +14,6 @@ import org.jerrymouse.weaving.extracter.utils.DomUtils;
 import org.jerrymouse.weaving.extracter.utils.Node;
 import org.jerrymouse.weaving.eye.Eye;
 import org.jerrymouse.weaving.model.Website;
-import org.jerrymouse.weaving.model.analysis.AnalysiseFeeds;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -35,9 +34,9 @@ public class CommonFeedFilter implements ExtractFilter {
 				return;
 			String content = eye.see(new URL(webSite.getProfile().getUrl()));
 			List<String> feeds = getFeeds(content);
-//			if (webSite.getFeeds() == null) {
-//				webSite.setFeeds(new AnalysiseFeeds());
-//			}
+			// if (webSite.getFeeds() == null) {
+			// webSite.setFeeds(new AnalysiseFeeds());
+			// }
 			webSite.getFeeds().setFeedLinks(feeds);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
