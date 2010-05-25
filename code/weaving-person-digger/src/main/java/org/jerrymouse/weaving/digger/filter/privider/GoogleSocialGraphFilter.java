@@ -121,9 +121,13 @@ public class GoogleSocialGraphFilter implements Filter {
 		for (Website website : person) {
 			try {
 				if (website.getProfile() != null) {
-					qs.add(website.getProfile().getUrl());
+					if (website.getProfile().getUrl() != null)
+						qs.add(website.getProfile().getUrl());
 					if (website.getProfile().getEmails() != null) {
 						qs.addAll(website.getProfile().getEmails());
+					}
+					if (website.getProfile().getUsername() != null) {
+						qs.add(website.getProfile().getUsername());
 					}
 				}
 			} catch (NullPointerException e) {

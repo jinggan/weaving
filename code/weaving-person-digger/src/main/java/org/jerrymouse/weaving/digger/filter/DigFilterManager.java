@@ -18,4 +18,8 @@ public class DigFilterManager {
 		filters.add(googleSocialGraphFilter);
 		return filters;
 	}
+	
+	public GoogleSocialGraphFilter getGoogleSocialGraphFilter() {
+		return googleSocialGraphFilter;
+	}
 }

@@ -57,6 +57,8 @@ public class StringUtils {
 	}
 
 	public boolean match(String url, String pattern) {
+		if(url==null)
+			return false;
 		String m = null;
 		if (url.startsWith(REGEX)) {
 			m = url.substring(REGEX.length());

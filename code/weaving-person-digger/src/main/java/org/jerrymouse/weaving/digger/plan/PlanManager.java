@@ -2,24 +2,30 @@ package org.jerrymouse.weaving.digger.plan;
 
 import javax.annotation.Resource;
 
-import org.jerrymouse.weaving.digger.filter.DigFilterManager;
-import org.jerrymouse.weaving.extracter.Extracter;
 import org.jerrymouse.weaving.model.Person;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PlanManager {
-	@Resource
-	private DigFilterManager digFilterManager;
-	@Resource
-	private Extracter extracter;
+public class PlanManager implements BeanFactoryAware {
 
-	public DigPlan createPlan(Person person) {
-		DigPlan digPlan = new DigPlan();
-		digPlan.setDigFilterManager(digFilterManager);
-		digPlan.setExtracter(extracter);
+	@Resource
+	private QueryAnalysiser queryAnalysiser;
+
+	public DigPlan createPlan(String resource) {
+		Person person = queryAnalysiser.analysise(resource);
+		DigPlan digPlan = beanFactory.getBean(DigPlan.class);
 		digPlan.setPerson(person);
 		return digPlan;
+	}
+
+	private BeanFactory beanFactory;
+
+	@Override
+	public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
+		this.beanFactory = beanFactory;
 	}
 
 }

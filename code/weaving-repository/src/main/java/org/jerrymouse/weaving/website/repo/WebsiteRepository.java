@@ -22,7 +22,6 @@ public class WebsiteRepository {
 	private JsonUtil<WebsiteEntity> jsonUtil = new JsonUtil<WebsiteEntity>();
 	@Resource
 	private EntityUtils entityUtils;
-	private Log log = LogFactory.getLog(WebsiteRepository.class);
 
 	public Repository getRepository() {
 		if (repository == null)
@@ -33,7 +32,6 @@ public class WebsiteRepository {
 	public Website get(String key) {
 		WebsiteEntity websiteEntity = null;
 		String json = getRepository().get(key);
-		log.trace(json);
 		if (json != null) {
 			websiteEntity = jsonUtil.toBean(json, WebsiteEntity.class);
 		}
@@ -50,7 +48,6 @@ public class WebsiteRepository {
 	private String put(String key, Website website) {
 		WebsiteEntity websiteEntity = entityUtils.copy(website);
 		String json = jsonUtil.toJson(websiteEntity);
-		log.trace(json);
 		key = getRepository().put(key, json);
 		return key;
 	}
@@ -58,7 +55,6 @@ public class WebsiteRepository {
 	public String put(Website website) {
 		WebsiteEntity websiteEntity = entityUtils.copy(website);
 		String json = jsonUtil.toJson(websiteEntity);
-		log.trace(json);
 		String key = getRepository().put(website.getProfile().getUrl(), json);
 		return key;
 	}
