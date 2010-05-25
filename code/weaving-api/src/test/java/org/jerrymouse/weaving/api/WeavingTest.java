@@ -1,5 +1,7 @@
 package org.jerrymouse.weaving.api;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.jerrymouse.weaving.digger.Digger;
@@ -17,8 +19,8 @@ public class WeavingTest extends TestCaseBase {
 
 	@Test
 	public void testDigPerson() {
-		Person person = digger.dig("https://www.google.com/profiles/KaiYanNju");
-		log.trace(person);
+		List<Person> persons = digger.dig("https://www.google.com/profiles/KaiYanNju");
+		log.trace(persons);
 	}
 
 	@Test

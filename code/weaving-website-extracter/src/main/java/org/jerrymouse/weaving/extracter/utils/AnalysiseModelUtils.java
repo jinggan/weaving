@@ -17,12 +17,12 @@ public class AnalysiseModelUtils {
 	public Website copy(Website website, Website analysiseWebsite) {
 		if (analysiseWebsite == null)
 			return analysiseWebsite;
-		if (analysiseWebsite.getProfile() == null)
-			analysiseWebsite.setProfile(new AnalysiseProfile());
-		if (analysiseWebsite.getConnections() == null)
-			analysiseWebsite.setConnections(new AnalysiseConnections());
-		if (analysiseWebsite.getFeeds() == null)
-			analysiseWebsite.setFeeds(new AnalysiseFeeds());
+		// if (analysiseWebsite.getProfile() == null)
+		// analysiseWebsite.setProfile(AnalysiseProfile.);
+		// if (analysiseWebsite.getConnections() == null)
+		// analysiseWebsite.setConnections(new AnalysiseConnections());
+		// if (analysiseWebsite.getFeeds() == null)
+		// analysiseWebsite.setFeeds(new AnalysiseFeeds());
 		analysiseWebsite.setProfile(modelUtils.copy(website.getProfile(),
 				analysiseWebsite.getProfile()));
 		analysiseWebsite.setConnections(modelUtils.copy(website

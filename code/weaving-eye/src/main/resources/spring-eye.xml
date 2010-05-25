@@ -12,6 +12,7 @@
 		<property name="list">
 			<list>
 				<value>twitter.com</value>
+				<value>facebook.com</value>
 			</list>
 		</property>
 		<property name="proxyHost">
@@ -21,7 +22,7 @@
 			<value>7070</value>
 		</property>
 		<property name="inGFW">
-			<value>false</value>
+			<value>true</value>
 		</property>
 	</bean>
 

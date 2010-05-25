@@ -1,14 +1,11 @@
 package org.jerrymouse.weaving.digger;
 
-import static org.junit.Assert.*;
-
 import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.jerrymouse.weaving.model.Person;
 import org.jerrymouse.weaving.test.TestCaseBase;
-import org.junit.Before;
 import org.junit.Test;
 
 public class DiggerTest extends TestCaseBase {

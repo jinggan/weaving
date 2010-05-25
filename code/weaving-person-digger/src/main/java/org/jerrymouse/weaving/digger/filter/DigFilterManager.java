@@ -13,8 +13,8 @@ public class DigFilterManager {
 	@Resource
 	private GoogleSocialGraphFilter googleSocialGraphFilter;
 
-	public List<Filter> getFilters() {
-		List<Filter> filters = new ArrayList<Filter>();
+	public List<DigFilter> getFilters() {
+		List<DigFilter> filters = new ArrayList<DigFilter>();
 		filters.add(googleSocialGraphFilter);
 		return filters;
 	}

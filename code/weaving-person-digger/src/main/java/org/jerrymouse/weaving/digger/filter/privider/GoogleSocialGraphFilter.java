@@ -6,7 +6,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -15,7 +14,8 @@ import org.apache.commons.logging.LogFactory;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.map.ObjectMapper;
-import org.jerrymouse.weaving.digger.filter.Filter;
+import org.jerrymouse.weaving.digger.filter.DigFilter;
+import org.jerrymouse.weaving.digger.plan.PersonCleaner;
 import org.jerrymouse.weaving.eye.Eye;
 import org.jerrymouse.weaving.model.Person;
 import org.jerrymouse.weaving.model.Profile;
@@ -26,17 +26,19 @@ import org.jerrymouse.weaving.model.analysis.AnalysiseWebsite;
 import org.springframework.stereotype.Component;
 
 @Component
-public class GoogleSocialGraphFilter implements Filter {
+public class GoogleSocialGraphFilter implements DigFilter {
 	@Resource
 	private Eye eye;
-
 	private static Log log = LogFactory.getLog(GoogleSocialGraphFilter.class);
+	@Resource
+	private PersonCleaner personCleaner;
 
 	@Override
 	public void dig(Person person) {
 		if (person == null)
 			return;
 		digme(person);
+		personCleaner.clean(person);
 	}
 
 	private void digme(Person person) {
@@ -63,9 +65,8 @@ public class GoogleSocialGraphFilter implements Filter {
 				JsonNode photo = attributes.get("photo");
 				JsonNode fn = attributes.get("fn");
 
-				Website website = new AnalysiseWebsite();
+				Website website = AnalysiseWebsite.getInstance();
 				list.add(website);
-				website.setProfile(new AnalysiseProfile());
 				if (profile != null) {
 					website.getProfile().setUrl(jsonNodeToString(profile));
 				} else if (filed != null) {
@@ -77,7 +78,6 @@ public class GoogleSocialGraphFilter implements Filter {
 				website.getProfile().getAvatarLinks().add(
 						jsonNodeToString(photo));
 				website.getProfile().setUsername(jsonNodeToString(fn));
-				website.setFeeds(new AnalysiseFeeds());
 				website.getFeeds().setFeedLinks(new ArrayList<String>());
 				website.getFeeds().getFeedLinks().add(jsonNodeToString(atom));
 				website.getFeeds().getFeedLinks().add(jsonNodeToString(rss));
@@ -113,7 +113,6 @@ public class GoogleSocialGraphFilter implements Filter {
 			e.printStackTrace();
 		}
 		return null;
-
 	}
 
 	private String getQ(Person person) {
@@ -142,11 +141,6 @@ public class GoogleSocialGraphFilter implements Filter {
 		}
 		q = q.substring(0, q.lastIndexOf(','));
 		return q;
-	}
-
-	@Override
-	public boolean needRepeat() {
-		return true;
 	}
 
 }

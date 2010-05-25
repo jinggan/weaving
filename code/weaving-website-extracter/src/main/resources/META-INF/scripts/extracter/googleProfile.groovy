@@ -27,29 +27,14 @@ def boolean match(Website website){
 }
 
 def analysis(Website website){
-	if(website.profile==null){
-		return;
-	}
 	website.profile.id=getIdFromUrl(website.profile.url);
 	website.profile.host=stringUtils.getHost(website.profile.url);
 	String htmlContent = eye.see(new URL(website.profile.url));
 	if (htmlContent == null)
 		return;
 	website.profile.username=getUsernameFromContent(htmlContent);
-	if(website.profile.emails==null){
-		website.profile.emails=new ArrayList<String>();
-	}
 	website.profile.emails.add(getEmailFromUsername(website.profile.id));
-	if(website.profile.avatarLinks==null){
-		website.profile.avatarLinks=new ArrayList<String>();
-	}
 	website.profile.avatarLinks.add(getSmallAvatarLinks(htmlContent));
-	if(website.connections==null){
-		website.connections=new AnalysiseConnections();
-	}
-	if(website.connections.selfLinks==null){
-		website.connections.selfLinks=new ArrayList<String>();
-	}
 	List<String> links=selfLinks(htmlContent);
 	if(links!=null){
 		website.connections.selfLinks.addAll(links);

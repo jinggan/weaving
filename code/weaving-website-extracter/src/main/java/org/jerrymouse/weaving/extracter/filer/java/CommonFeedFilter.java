@@ -35,9 +35,9 @@ public class CommonFeedFilter implements ExtractFilter {
 				return;
 			String content = eye.see(new URL(webSite.getProfile().getUrl()));
 			List<String> feeds = getFeeds(content);
-			if (webSite.getFeeds() == null) {
-				webSite.setFeeds(new AnalysiseFeeds());
-			}
+//			if (webSite.getFeeds() == null) {
+//				webSite.setFeeds(new AnalysiseFeeds());
+//			}
 			webSite.getFeeds().setFeedLinks(feeds);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();

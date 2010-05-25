@@ -61,5 +61,6 @@
 			<groupId>org.jerrymouse</groupId>
 			<artifactId>jsa4j-db-kv</artifactId>
 		</dependency>
+		<!-- commons -->
 	</dependencies>
 </project>

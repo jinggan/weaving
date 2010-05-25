@@ -8,12 +8,15 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class PersonValidater {
-	List<Person> validate(Person person) {
-		List<Person> persons=new ArrayList<Person>();
+	public List<Person> validate(Person person) {
+		List<Person> persons = new ArrayList<Person>();
 		persons.add(person);
 		return persons;
 	}
-	List<Person> validate(List<Person> persons) {
+
+	public	List<Person> validate(List<Person> persons) {
 		return persons;
 	}
+
+	
 }

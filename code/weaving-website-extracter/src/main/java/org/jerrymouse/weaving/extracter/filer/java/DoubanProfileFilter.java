@@ -38,8 +38,8 @@ public class DoubanProfileFilter implements ExtractFilter {
 	@Override
 	public void analysis(Website website) {
 		try {
-			if (website.getProfile() == null)
-				website.setProfile(new AnalysiseProfile());
+//			if (website.getProfile() == null)
+//				website.setProfile(new AnalysiseProfile());
 			Profile profile = website.getProfile();
 			profile.setId(getIdFromUrl(profile.getUrl()));
 			String htmlContent = eye.see(new URL(profile.getUrl()));
@@ -50,9 +50,9 @@ public class DoubanProfileFilter implements ExtractFilter {
 			avatarLinks.add(getSmallAvatarLinks(htmlContent));
 			avatarLinks.add(getBigAvatarLinks(htmlContent));
 			profile.setAvatarLinks(avatarLinks);
-			if (website.getConnections() == null) {
-				website.setConnections(new AnalysiseConnections());
-			}
+//			if (website.getConnections() == null) {
+//				website.setConnections(new AnalysiseConnections());
+//			}
 			if (website.getConnections().getSelfLinks() == null) {
 				website.getConnections().setSelfLinks(new ArrayList<String>());
 			}

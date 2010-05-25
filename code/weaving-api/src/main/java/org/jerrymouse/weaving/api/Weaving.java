@@ -1,5 +1,7 @@
 package org.jerrymouse.weaving.api;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.jerrymouse.weaving.digger.Digger;
@@ -15,8 +17,8 @@ public class Weaving {
 	@Resource
 	private Extracter extracter;
 
-	public Person digPerson(String url) {
-		return digger.dig(url);
+	public List<Person> digPerson(String resource) {
+		return digger.dig(resource);
 	}
 
 	public Website extractWebsite(String url) {

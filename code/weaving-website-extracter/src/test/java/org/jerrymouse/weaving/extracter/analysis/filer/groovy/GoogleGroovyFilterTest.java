@@ -28,13 +28,11 @@ public class GoogleGroovyFilterTest extends TestCaseBase {
 
 	@Test
 	public void testAnalysis() {
-		Website website = new AnalysiseWebsite();
-		website.setProfile(new AnalysiseProfile());
+		Website website = AnalysiseWebsite.getInstance();
 		website.getProfile().setUrl("http://www.google.com/profiles/KaiYanNju");
 		log.trace(website);
 		groovyFilter.analysis(website);
 		log.trace(website);
 	}
-	
 
 }

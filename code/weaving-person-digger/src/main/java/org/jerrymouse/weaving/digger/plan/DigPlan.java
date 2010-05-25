@@ -1,12 +1,13 @@
 package org.jerrymouse.weaving.digger.plan;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.jerrymouse.weaving.digger.filter.DigFilterManager;
-import org.jerrymouse.weaving.digger.filter.Filter;
+import org.jerrymouse.weaving.digger.filter.DigFilter;
+import org.jerrymouse.weaving.digger.filter.privider.GoogleSocialGraphFilter;
+import org.jerrymouse.weaving.digger.filter.privider.UserNameFilter;
 import org.jerrymouse.weaving.extracter.Extracter;
 import org.jerrymouse.weaving.model.Person;
 import org.jerrymouse.weaving.model.Website;
@@ -19,9 +20,11 @@ import org.springframework.stereotype.Component;
 public class DigPlan {
 
 	private Person person;
+	@Resource
+	private GoogleSocialGraphFilter googleSocialGraphFilter;
 
 	@Resource
-	private DigFilterManager digFilterManager;
+	private UserNameFilter userNameFilter;
 	@Resource
 	private Extracter extracter;
 	@Resource
@@ -32,11 +35,11 @@ public class DigPlan {
 	}
 
 	public List<Person> execute() {
-		Filter f = digFilterManager.getGoogleSocialGraphFilter();
-		f.dig(person);
+		userNameFilter.dig(person);
+		googleSocialGraphFilter.dig(person);
 		for (Website w : person) {
 			extracter.extract(w);
 		}
-		return	personValidater.validate(person);
+		return personValidater.validate(person);
 	}
 }

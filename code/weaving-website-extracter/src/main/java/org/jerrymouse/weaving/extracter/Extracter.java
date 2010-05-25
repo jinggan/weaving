@@ -44,10 +44,10 @@ public class Extracter {
 		return analyse(website);
 	}
 
-	private void getWebsite(String url,final Website analysiseWebsite) {
+	private void getWebsite(String url, final Website analysiseWebsite) {
 		Website website = repository.get(url);
 		if (website == null) {
-			analysiseWebsite.setProfile(new AnalysiseProfile());
+			analysiseWebsite.setProfile(AnalysiseProfile.getInstance());
 			analysiseWebsite.getProfile().setUrl(url);
 		} else {
 			analysiseModelUtils.copy(website, analysiseWebsite);
@@ -55,7 +55,7 @@ public class Extracter {
 	}
 
 	private Website getWebsite(String url) {
-		AnalysiseWebsite analysiseWebsite = new AnalysiseWebsite();
+		AnalysiseWebsite analysiseWebsite = AnalysiseWebsite.getInstance();
 		getWebsite(url, analysiseWebsite);
 		return analysiseWebsite;
 	}

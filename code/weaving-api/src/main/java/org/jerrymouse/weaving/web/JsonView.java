@@ -119,7 +119,6 @@ public class JsonView extends AbstractView {
 	protected void renderMergedOutputModel(Map<String, Object> model,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-
 		Object value = filterModel(model);
 		JsonGenerator generator = objectMapper.getJsonFactory()
 				.createJsonGenerator(response.getOutputStream(), encoding);
@@ -151,6 +150,9 @@ public class JsonView extends AbstractView {
 	 * @return the object to be rendered
 	 */
 	protected Object filterModel(Map<String, Object> model) {
+		if (model.containsKey("data")) {
+			return model.get("data");
+		}
 		Map<String, Object> result = new HashMap<String, Object>(model.size());
 		Set<String> renderedAttributes = !CollectionUtils
 				.isEmpty(this.renderedAttributes) ? this.renderedAttributes
@@ -161,6 +163,7 @@ public class JsonView extends AbstractView {
 				result.put(entry.getKey(), entry.getValue());
 			}
 		}
+
 		return result;
 	}
 }

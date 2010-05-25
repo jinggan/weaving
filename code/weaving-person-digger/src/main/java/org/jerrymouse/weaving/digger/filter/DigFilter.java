@@ -2,8 +2,7 @@ package org.jerrymouse.weaving.digger.filter;
 
 import org.jerrymouse.weaving.model.Person;
 
-public interface Filter {
+public interface DigFilter {
 	void dig(Person person);
 
-	boolean needRepeat();
 }

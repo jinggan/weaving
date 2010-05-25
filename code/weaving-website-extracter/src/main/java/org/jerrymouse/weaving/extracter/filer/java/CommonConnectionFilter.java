@@ -33,9 +33,9 @@ public class CommonConnectionFilter implements ExtractFilter {
 			if (webSite.getProfile().getUrl() == null)
 				return;
 			String content = eye.see(new URL(webSite.getProfile().getUrl()));
-			if (webSite.getConnections() == null) {
-				webSite.setConnections(new AnalysiseConnections());
-			}
+//			if (webSite.getConnections() == null) {
+//				webSite.setConnections(new AnalysiseConnections());
+//			}
 			webSite.getConnections().setSelfLinks(getMe(content));
 			webSite.getConnections().setFriendLinks(getFriend(content));
 			webSite.getConnections().setFollowLinks(getContact(content));

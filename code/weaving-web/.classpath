@@ -45,7 +45,7 @@
   </classpathentry>
   <classpathentry kind="var" path="M2_REPO/org/codehaus/jackson/jackson-core-asl/1.5.2/jackson-core-asl-1.5.2.jar" sourcepath="M2_REPO/org/codehaus/jackson/jackson-core-asl/1.5.2/jackson-core-asl-1.5.2-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/codehaus/jackson/jackson-jaxrs/1.5.2/jackson-jaxrs-1.5.2.jar" sourcepath="M2_REPO/org/codehaus/jackson/jackson-jaxrs/1.5.2/jackson-jaxrs-1.5.2-sources.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/codehaus/jackson/jackson-mapper-asl/1.5.2/jackson-mapper-asl-1.5.2.jar" sourcepath="M2_REPO/org/codehaus/jackson/jackson-mapper-asl/1.5.2/jackson-mapper-asl-1.5.2-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/codehaus/jackson/jackson-mapper-asl/1.5.1/jackson-mapper-asl-1.5.1.jar" sourcepath="M2_REPO/org/codehaus/jackson/jackson-mapper-asl/1.5.1/jackson-mapper-asl-1.5.1-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/jerrymouse/jsa4j-db-kv/1.0-alpha-2/jsa4j-db-kv-1.0-alpha-2.jar" sourcepath="M2_REPO/org/jerrymouse/jsa4j-db-kv/1.0-alpha-2/jsa4j-db-kv-1.0-alpha-2-sources.jar">
     <attributes>
       <attribute value="jar:file:/home/yankai/.m2/repository/org/jerrymouse/jsa4j-db-kv/1.0-alpha-2/jsa4j-db-kv-1.0-alpha-2-javadoc.jar!/" name="javadoc_location"/>

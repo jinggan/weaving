@@ -21,30 +21,15 @@ def boolean match(Website website){
 }
 
 def analysis(Website website){
-	if(website.profile==null){
-		return;
-	}
 	website.profile.id=getIdFromUrl(website.profile.url);
 	website.profile.host=stringUtils.getHost(website.profile.url);
 	String htmlContent = eye.see(new URL(website.profile.url));
 	if (htmlContent == null)
 		return;
 	website.profile.username=getUsernameFromContent(htmlContent);
-	if(website.profile.avatarLinks==null){
-		website.profile.avatarLinks=new ArrayList<String>();
-	}
 	website.profile.avatarLinks.add(getSmallAvatarLinks(htmlContent));
 	website.profile.avatarLinks.add(getBigAvatarLinks(htmlContent));
-	if(website.connections==null){
-		website.connections=new AnalysiseConnections();
-	}
-	if(website.connections.selfLinks==null){
-		website.connections.selfLinks=new ArrayList<String>();
-	}
 	String selfLink=selfLink(htmlContent);
-	if(selfLink!=null){
-		website.connections.selfLinks.add(selfLink);
-	}
 	
 }
 

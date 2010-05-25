@@ -4,33 +4,31 @@ import java.util.ArrayList;
 
 import javax.annotation.Resource;
 
-import org.jerrymouse.weaving.digger.Digger;
-import org.jerrymouse.weaving.model.Person;
+import org.jerrymouse.weaving.extracter.Extracter;
+import org.jerrymouse.weaving.model.Website;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.json.MappingJacksonJsonView;
 
 @Controller
-public class DigController {
+public class ExtractController {
 	@Resource
-	private Digger digger;
+	private Extracter extracter;
 
-	@RequestMapping("/api/dig")
-	public ModelAndView dig(@RequestParam String q,
+	@RequestMapping("/api/extract")
+	public ModelAndView extract(@RequestParam String q,
 			@RequestParam(required = false) String pretty) {
-		Person person = digger.dig(q);
+		Website website = extracter.extract(q);
 		boolean p = pretty == null ? false : true;
 		JsonView view = new JsonView();
 		view.setPretty(p);
 		ModelAndView modelAndView = new ModelAndView(view);
-		if (person != null)
-			modelAndView.addObject(person);
+		if (website != null)
+			modelAndView.addObject("data",website);
 		else {
-			modelAndView.addObject(new ArrayList<String>());
+			modelAndView.addObject("data",new ArrayList<String>());
 		}
 		return modelAndView;
-
 	}
 }

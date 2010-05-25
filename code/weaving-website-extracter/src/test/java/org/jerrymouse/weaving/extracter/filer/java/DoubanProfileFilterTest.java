@@ -19,8 +19,8 @@ public class DoubanProfileFilterTest extends TestCaseBase {
 
 	@Test
 	public void testAnalysis() {
-		Website website = new AnalysiseWebsite();
-		Profile profile = new AnalysiseProfile();
+		Website website = AnalysiseWebsite.getInstance();
+		Profile profile = AnalysiseProfile.getInstance();
 		profile.setUrl("http://www.douban.com/people/yankay/");
 		website.setProfile(profile);
 		log.trace(profile);
@@ -32,8 +32,8 @@ public class DoubanProfileFilterTest extends TestCaseBase {
 
 	@Test
 	public void testAnalysis2() {
-		Website website = new AnalysiseWebsite();
-		Profile profile = new AnalysiseProfile();
+		Website website = AnalysiseWebsite.getInstance();
+		Profile profile = AnalysiseProfile.getInstance();
 		profile.setUrl("http://www.douban.com/people/2239880/");
 		website.setProfile(profile);
 		log.trace(profile);
@@ -43,8 +43,8 @@ public class DoubanProfileFilterTest extends TestCaseBase {
 
 	@Test
 	public void testAnalysis3() {
-		Website website = new AnalysiseWebsite();
-		Profile profile = new AnalysiseProfile();
+		Website website = AnalysiseWebsite.getInstance();
+		Profile profile = AnalysiseProfile.getInstance();
 		profile.setUrl("http://www.douban.com/people/EagerYuan/");
 		website.setProfile(profile);
 		doubanProfileFilter.analysis(website);
