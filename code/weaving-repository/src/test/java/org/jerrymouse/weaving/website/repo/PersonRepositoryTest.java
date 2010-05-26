@@ -1,7 +1,5 @@
 package org.jerrymouse.weaving.website.repo;
 
-import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +15,6 @@ import org.jerrymouse.weaving.website.repo.model.ConnectionsEntity;
 import org.jerrymouse.weaving.website.repo.model.PersonEntity;
 import org.jerrymouse.weaving.website.repo.model.ProfileEntity;
 import org.jerrymouse.weaving.website.repo.model.WebsiteEntity;
-import org.junit.Before;
 import org.junit.Test;
 
 public class PersonRepositoryTest extends TestCaseBase {
@@ -26,7 +23,8 @@ public class PersonRepositoryTest extends TestCaseBase {
 
 	@Test
 	public void testPut() {
-		personRepository.put("cc", getPerson());
+		String key = personRepository.put("cc", getPerson());
+		log.trace(key);
 	}
 
 	@Test
@@ -65,6 +63,6 @@ public class PersonRepositoryTest extends TestCaseBase {
 
 }
 
-class PersonMock extends AbstractPerson{
-	
+class PersonMock extends AbstractPerson {
+
 }

@@ -6,7 +6,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.jerrymouse.weaving.digger.Digger;
-import org.jerrymouse.weaving.model.Person;
+import org.jerrymouse.weaving.model.analysis.AnalysisePerson;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,7 +20,7 @@ public class DigController {
 	@RequestMapping("/api/dig")
 	public ModelAndView dig(@RequestParam String q,
 			@RequestParam(required = false) String pretty) {
-		List<Person> persons = digger.dig(q);
+		List<AnalysisePerson> persons = digger.dig(q);
 		boolean p = pretty == null ? false : true;
 		JsonView view = new JsonView();
 		view.setPretty(p);

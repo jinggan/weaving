@@ -5,8 +5,8 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.jerrymouse.weaving.digger.Digger;
-import org.jerrymouse.weaving.model.Person;
 import org.jerrymouse.weaving.model.Website;
+import org.jerrymouse.weaving.model.analysis.AnalysisePerson;
 import org.jerrymouse.weaving.test.TestCaseBase;
 import org.junit.Test;
 
@@ -19,7 +19,8 @@ public class WeavingTest extends TestCaseBase {
 
 	@Test
 	public void testDigPerson() {
-		List<Person> persons = digger.dig("https://www.google.com/profiles/KaiYanNju");
+		List<AnalysisePerson> persons = digger
+				.dig("https://www.google.com/profiles/KaiYanNju");
 		log.trace(persons);
 	}
 

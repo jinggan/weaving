@@ -6,6 +6,16 @@ import org.jerrymouse.weaving.model.Website;
 import org.jerrymouse.weaving.model.base.AbstractPerson;
 
 public class AnalysisePerson extends AbstractPerson {
+	private String key;
+
+	public String getKey() {
+		return key;
+	}
+
+	public void setKey(String key) {
+		this.key = key;
+	}
+
 	private AnalysisePerson() {
 	}
 

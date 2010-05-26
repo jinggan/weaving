@@ -2,14 +2,11 @@ package org.jerrymouse.weaving.digger.plan;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.jerrymouse.weaving.model.Person;
 import org.jerrymouse.weaving.model.Website;
 import org.jerrymouse.weaving.model.analysis.AnalysisePerson;
-import org.jerrymouse.weaving.model.analysis.AnalysiseProfile;
 import org.jerrymouse.weaving.model.analysis.AnalysiseWebsite;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +18,7 @@ public class QueryAnalysiser {
 	 * @param query
 	 * @return
 	 */
-	Person analysise(String query) {
+	AnalysisePerson analysise(String query) {
 		Website website = AnalysiseWebsite.getInstance();
 		if (isUrl(query)) {
 			website.getProfile().setUrl(query);
@@ -30,7 +27,7 @@ public class QueryAnalysiser {
 		} else {
 			website.getProfile().setUsername(query);
 		}
-		Person person = AnalysisePerson.getInstance();
+		AnalysisePerson person = AnalysisePerson.getInstance();
 		person.getWebsites().add(website);
 		return person;
 	}

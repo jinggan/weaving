@@ -72,6 +72,8 @@ public class StringUtils {
 	}
 
 	public boolean match(Website website, String pattern) {
+		if(website==null)
+			return false;
 		if (website.getProfile() != null)
 			return match(website.getProfile().getUrl(), pattern);
 		return false;

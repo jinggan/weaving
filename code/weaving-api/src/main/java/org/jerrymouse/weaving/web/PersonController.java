@@ -1,13 +1,10 @@
 package org.jerrymouse.weaving.web;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.jerrymouse.weaving.digger.Digger;
 import org.jerrymouse.weaving.digger.plan.GatherPerson;
-import org.jerrymouse.weaving.model.Person;
+import org.jerrymouse.weaving.model.analysis.AnalysisePerson;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,16 +15,12 @@ public class PersonController {
 	@Resource
 	private Digger digger;
 
-	@RequestMapping("/person/{q}")
-	public String dig(@PathVariable String q, Model model) {
-		if (q == null || q.isEmpty())
+	@RequestMapping("/person/{id}")
+	public String dig(@PathVariable String id, Model model) {
+		if (id == null || id.isEmpty())
 			return "redirect /";
-		List<Person> persons = digger.dig(q);
-		List<GatherPerson> gatherPersons = new ArrayList<GatherPerson>();
-		for (Person person : persons) {
-			gatherPersons.add(GatherPerson.getInstance(person));
-		}
-		model.addAttribute("persons", gatherPersons);
+		AnalysisePerson person = digger.get(id);
+		model.addAttribute("person", GatherPerson.getInstance(person));
 		return "person";
 
 	}

@@ -12,7 +12,6 @@ import org.jerrymouse.weaving.digger.plan.PersonCleaner;
 import org.jerrymouse.weaving.eye.Eye;
 import org.jerrymouse.weaving.model.Person;
 import org.jerrymouse.weaving.model.Website;
-import org.jerrymouse.weaving.model.analysis.AnalysiseProfile;
 import org.jerrymouse.weaving.model.analysis.AnalysiseWebsite;
 import org.springframework.stereotype.Component;
 

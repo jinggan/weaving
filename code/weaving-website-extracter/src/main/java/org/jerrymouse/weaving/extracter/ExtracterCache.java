@@ -6,19 +6,11 @@ import org.jerrymouse.weaving.extracter.filer.ExtractFilterManager;
 import org.jerrymouse.weaving.extracter.filer.ExtractPlan;
 import org.jerrymouse.weaving.extracter.utils.AnalysiseModelUtils;
 import org.jerrymouse.weaving.model.Website;
-import org.jerrymouse.weaving.model.analysis.AnalysiseProfile;
 import org.jerrymouse.weaving.model.analysis.AnalysiseWebsite;
 import org.jerrymouse.weaving.website.repo.WebsiteRepository;
 import org.springframework.stereotype.Component;
-
-/**
- * 实例为一个方案
- * 
- * @author yankai
- * 
- */
 @Component
-public class Extracter {
+public class ExtracterCache {
 	@Resource
 	private AnalysiseModelUtils analysiseModelUtils;
 
@@ -28,11 +20,10 @@ public class Extracter {
 	@Resource
 	private WebsiteRepository repository;
 
-	public Website analyse(Website website) {
+	public void analyse(Website website) {
 		ExtractPlan extractPlan = filterManager.createPlan(website);
 		extractPlan.execute(website);
 		repository.put(website);
-		return website;
 	}
 
 	/**
@@ -42,33 +33,38 @@ public class Extracter {
 	 * @return
 	 */
 	public Website extract(String url) {
-		Website cache = repository.get(url);
-		if (cache != null) {
-			return cache;
+		Website site = getWebsiteFromDB(url);
+		if (site == null) {
+			site = AnalysiseWebsite.getInstance();
+			site.getProfile().setUrl(url);
+			analyse(site);
 		}
-		Website site = getWebsite(url);
-		return analyse(site);
+		return site;
 	}
 
-	public Website extract(Website website) {
-		getWebsite(website.getProfile().getUrl(), website);
-		return analyse(website);
-	}
-
-	private Website getWebsite(String url) {
-		AnalysiseWebsite analysiseWebsite = AnalysiseWebsite.getInstance();
-		getWebsite(url, analysiseWebsite);
-		return analysiseWebsite;
-	}
-
-	private void getWebsite(String url, final Website analysiseWebsite) {
+	private Website getWebsiteFromDB(String url) {
 		Website website = repository.get(url);
+		AnalysiseWebsite analysiseWebsite = AnalysiseWebsite.getInstance();
 		if (website == null) {
-			analysiseWebsite.setProfile(AnalysiseProfile.getInstance());
-			analysiseWebsite.getProfile().setUrl(url);
+			return null;
 		} else {
 			analysiseModelUtils.copy(website, analysiseWebsite);
 		}
+		return analysiseWebsite;
+	}
+
+	public Website extract(Website w) {
+		Website site = getWebsiteFromDB(w.getProfile().getUrl());
+		if (site == null) {
+			site = analysiseModelUtils.copy(w, site);
+			analyse(site);
+		}
+		return site;
+	}
+
+	public Website get(String url) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

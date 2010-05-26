@@ -5,8 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.jerrymouse.weaving.model.Person;
 import org.jerrymouse.weaving.model.Website;
+import org.jerrymouse.weaving.model.analysis.AnalysisePerson;
 import org.jerrymouse.weaving.model.base.AbstractPerson;
 
 public class GatherPerson extends AbstractPerson {
@@ -19,6 +19,32 @@ public class GatherPerson extends AbstractPerson {
 		return null;
 	}
 
+	public Set<String> getFeeds() {
+		Set<String> feeds = new HashSet<String>();
+		for (Website website : getWebsites()) {
+			feeds.addAll(website.getFeeds().getFeedLinks());
+		}
+		return feeds;
+	}
+
+	public Set<String> getUsernames() {
+		Set<String> usernames = new HashSet<String>();
+		for (Website website : getWebsites()) {
+			if (website.getProfile().getUsername() != null)
+				usernames.add(website.getProfile().getUsername());
+		}
+		return usernames;
+	}
+
+	public Set<String> getIds() {
+		Set<String> ids = new HashSet<String>();
+		for (Website website : getWebsites()) {
+			if (website.getProfile().getUsername() != null)
+				ids.add(website.getProfile().getUsername());
+		}
+		return ids;
+	}
+
 	public String getAvatar() {
 		for (Website website : getWebsites()) {
 			if (website.getProfile().getAvatarLinks() != null
@@ -26,6 +52,16 @@ public class GatherPerson extends AbstractPerson {
 				return website.getProfile().getAvatarLinks().get(0);
 		}
 		return null;
+	}
+
+	public Set<String> getEmails() {
+		Set<String> emails = new HashSet<String>();
+		for (Website website : getWebsites()) {
+			if (website.getProfile().getEmails() != null
+					&& website.getProfile().getEmails().size() != 0)
+				emails.addAll(website.getProfile().getEmails());
+		}
+		return emails;
 	}
 
 	public String getEmail() {
@@ -45,8 +81,6 @@ public class GatherPerson extends AbstractPerson {
 		}
 		return urls;
 	}
-	
-	
 
 	public String getUrl() {
 		if (getUrls().size() != 0)
@@ -54,9 +88,16 @@ public class GatherPerson extends AbstractPerson {
 		return null;
 	}
 
-	public static GatherPerson getInstance(Person person) {
+	public static GatherPerson getInstance(AnalysisePerson person) {
 		GatherPerson gatherPerson = new GatherPerson();
 		gatherPerson.setWebsites(person.getWebsites());
+		gatherPerson.key = person.getKey();
 		return gatherPerson;
+	}
+
+	private String key;
+
+	public String getKey() {
+		return key;
 	}
 }
