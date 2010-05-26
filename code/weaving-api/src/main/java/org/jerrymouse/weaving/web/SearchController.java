@@ -21,7 +21,7 @@ public class SearchController {
 	@RequestMapping("/search")
 	public String search(@RequestParam(required = false) String q, Model model) {
 		if (q == null || q.isEmpty())
-			return "redirect /";
+			return "redirect:/";
 		List<AnalysisePerson> persons = digger.dig(q);
 		List<GatherPerson> gatherPersons = new ArrayList<GatherPerson>();
 		for (AnalysisePerson person : persons) {

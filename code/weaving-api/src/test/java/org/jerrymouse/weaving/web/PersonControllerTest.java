@@ -16,10 +16,8 @@ public class PersonControllerTest extends TestCaseBase {
 
 	@Test
 	public void testDig() throws Exception {
-		ExtendedModelMap map = new ExtendedModelMap();
-		controller.dig("kaiyannju", map);
-		List<GatherPerson> persons=(List<GatherPerson>) map.get("persons");
-		log.trace(persons.get(0).getUrls());
+//		ExtendedModelMap map = new ExtendedModelMap();
+//		controller.dig("kaiyannju", map);
 	}
 
 }

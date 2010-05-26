@@ -2,10 +2,7 @@ package org.jerrymouse.weaving.website.repo;
 
 import javax.annotation.Resource;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.jerrymouse.jsa4j.db.kv.DB;
-import org.jerrymouse.jsa4j.db.kv.Indexer;
 import org.jerrymouse.jsa4j.db.kv.JsonUtil;
 import org.jerrymouse.jsa4j.db.kv.Repository;
 import org.jerrymouse.weaving.model.Website;

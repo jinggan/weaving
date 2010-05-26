@@ -39,8 +39,8 @@ public class GatherPerson extends AbstractPerson {
 	public Set<String> getIds() {
 		Set<String> ids = new HashSet<String>();
 		for (Website website : getWebsites()) {
-			if (website.getProfile().getUsername() != null)
-				ids.add(website.getProfile().getUsername());
+			if (website.getProfile().getId() != null)
+				ids.add(website.getProfile().getId());
 		}
 		return ids;
 	}

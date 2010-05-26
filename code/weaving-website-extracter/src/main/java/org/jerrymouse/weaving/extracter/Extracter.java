@@ -4,10 +4,12 @@ import javax.annotation.Resource;
 
 import org.jerrymouse.weaving.extracter.filer.ExtractFilterManager;
 import org.jerrymouse.weaving.extracter.filer.ExtractPlan;
+import org.jerrymouse.weaving.extracter.filer.WebsiteCleaner;
 import org.jerrymouse.weaving.extracter.utils.AnalysiseModelUtils;
 import org.jerrymouse.weaving.model.Website;
 import org.jerrymouse.weaving.model.analysis.AnalysiseProfile;
 import org.jerrymouse.weaving.model.analysis.AnalysiseWebsite;
+import org.jerrymouse.weaving.website.repo.WebsiteCache;
 import org.jerrymouse.weaving.website.repo.WebsiteRepository;
 import org.springframework.stereotype.Component;
 
@@ -24,7 +26,8 @@ public class Extracter {
 
 	@Resource
 	private ExtractFilterManager filterManager;
-
+	@Resource
+	private WebsiteCache websiteCache;
 	@Resource
 	private WebsiteRepository repository;
 
@@ -32,6 +35,7 @@ public class Extracter {
 		ExtractPlan extractPlan = filterManager.createPlan(website);
 		extractPlan.execute(website);
 		repository.put(website);
+		websiteCache.put(website.getProfile().getUrl(), website);
 		return website;
 	}
 
@@ -42,7 +46,7 @@ public class Extracter {
 	 * @return
 	 */
 	public Website extract(String url) {
-		Website cache = repository.get(url);
+		Website cache = websiteCache.get(url);
 		if (cache != null) {
 			return cache;
 		}
@@ -51,6 +55,10 @@ public class Extracter {
 	}
 
 	public Website extract(Website website) {
+		Website cache = websiteCache.get(website.getProfile().getUrl());
+		if (cache != null) {
+			return cache;
+		}
 		getWebsite(website.getProfile().getUrl(), website);
 		return analyse(website);
 	}

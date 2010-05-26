@@ -14,7 +14,10 @@ public class PersonGetter {
 	private Extracter extracter;
 
 	public AnalysisePerson get(PersonEntity personEntity) {
+		if (personEntity == null)
+			return null;
 		AnalysisePerson analysisePerson = AnalysisePerson.getInstance();
+
 		analysisePerson.setKey(personEntity.getKey());
 		for (String url : personEntity.getWebsiteUrls()) {
 			Website website = extracter.extract(url);

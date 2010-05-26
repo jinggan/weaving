@@ -10,6 +10,10 @@ body {
 	background-color: #355664;
 	font-family: Arial, Helvetica, sans-serif;
 }
+h1 a:visited{ /* The logo text */
+	color: #FFFFFF;
+	text-decoration: none;
+}
 
 /* Hyperlink Styles: */
 a,a:visited {
@@ -38,6 +42,7 @@ h1 { /* The logo text */
 	padding: 0.5em 0 0;
 	text-transform: uppercase;
 }
+
 
 h3 { /* The slogan text */
 	font-family: forte, "Myriad Pro", "Helvetica Neue", Helvetica, Arial,
@@ -191,8 +196,9 @@ div.footer a.by {
 div.footer a.up {
 	float: right;
 }
+
 /* tutorial */
-#searchBox  {
+#searchBox {
 	padding: 9px;
 	border: solid 1px #E5E5E5;
 	outline: 0;
@@ -209,7 +215,6 @@ div.footer a.up {
 	-moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
 	-webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
 }
-
 
 #searchBox input:hover,textarea:hover,input:focus,textarea:focus {
 	border-color: #C9C9C9;
