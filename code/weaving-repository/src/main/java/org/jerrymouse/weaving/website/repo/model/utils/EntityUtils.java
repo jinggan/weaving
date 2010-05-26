@@ -1,9 +1,14 @@
 package org.jerrymouse.weaving.website.repo.model.utils;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.jerrymouse.weaving.model.Person;
 import org.jerrymouse.weaving.model.Website;
 import org.jerrymouse.weaving.model.utils.ModelUtils;
 import org.jerrymouse.weaving.website.repo.model.ConnectionsEntity;
 import org.jerrymouse.weaving.website.repo.model.FeedsEntity;
+import org.jerrymouse.weaving.website.repo.model.PersonEntity;
 import org.jerrymouse.weaving.website.repo.model.ProfileEntity;
 import org.jerrymouse.weaving.website.repo.model.WebsiteEntity;
 import org.springframework.stereotype.Component;
@@ -21,5 +26,17 @@ public class EntityUtils {
 		websiteEntity.setFeeds(modelUtils.copy(website.getFeeds(),
 				new FeedsEntity()));
 		return websiteEntity;
+	}
+
+	public PersonEntity copy(Person person) {
+		PersonEntity personEntity = new PersonEntity();
+		List<String> list = new ArrayList<String>();
+		if (person.getWebsites() != null) {
+			for (Website website : person.getWebsites()) {
+				list.add(website.getProfile().getUrl());
+			}
+		}
+		personEntity.setWebsiteUrls(list);
+		return personEntity;
 	}
 }

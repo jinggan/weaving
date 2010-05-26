@@ -28,6 +28,7 @@ public class SearchController {
 			gatherPersons.add(GatherPerson.getInstance(person));
 		}
 		model.addAttribute("persons", gatherPersons);
+		model.addAttribute("q", q);
 		return "persons";
 	}
 }

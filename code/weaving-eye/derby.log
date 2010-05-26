@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-2010-05-25 14:50:01.001 GMT:
- Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance a816c00e-0128-cff0-ff3c-000001f9fdd8
+2010-05-26 03:40:20.966 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance a816c00e-0128-d2b2-3da6-00000253d928
 on database directory /home/yankai/.jsa4j/db/derby  
 
 Database Class Loader started - derby.database.classpath=''

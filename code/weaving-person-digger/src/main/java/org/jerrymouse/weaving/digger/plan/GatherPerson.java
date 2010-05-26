@@ -1,7 +1,9 @@
 package org.jerrymouse.weaving.digger.plan;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.jerrymouse.weaving.model.Person;
 import org.jerrymouse.weaving.model.Website;
@@ -43,6 +45,8 @@ public class GatherPerson extends AbstractPerson {
 		}
 		return urls;
 	}
+	
+	
 
 	public String getUrl() {
 		if (getUrls().size() != 0)
