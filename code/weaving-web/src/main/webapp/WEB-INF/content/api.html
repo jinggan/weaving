@@ -42,42 +42,49 @@
 </div>
 
 </div>
-<div>
-<div class="line"></div>
-<form action="#springUrl('/search')" id="search">
-<fieldset style="border: 0px;"><input id="searchBox"
-	type="text" name="q" value="${q}" /> <input id="searchBtn"
-	type="submit" value="Search" /></fieldset>
-</form>
-</div>
 
 <div class="section" id="articles"><!-- A new section with the articles -->
 
 <!-- Article 1 start -->
 
 <div class="line"></div>
-<!-- Dividing line --> #foreach( $person in $persons )
-<div class="article"><!-- The new article tag. The id is supplied so it can be scrolled into view. -->
-<h2><span>$!{person.username}</span></h2>
+<!-- Dividing line -->
+
+<div class="article" id="article1"><!-- The new article tag. The id is supplied so it can be scrolled into view. -->
+<h2>Extract API</h2>
+
+<div class="line"></div>
+<h4>介绍</h4>
+根据一个URL，挖出其相应的WebSite信息。该WebSite信息是结构化的。
+<h4>参数</h4>
+http://weaving-gae.appspot.com/api/extract？q={url}
+<h4>示例</h4>
+<p><a
+	href="#springUrl('/api/extract?q=http%3A%2F%2Fwww.google.com%2Fprofiles%2FKaiYanNju&pretty=1')">分析http://www.google.com/profiles/KaiYanNju</a></p>
+<div class="articleBody clear"></div>
+</div>
+
+<!-- Article 1 end --> <!-- Article 2 start -->
 
 <div class="line"></div>
 
-<div class="articleBody clear">
+<div class="article" id="article2">
+<h2>Dig API</h2>
 
-<div class="figure"><!-- The figure tag marks data (usually an image) that is part of the article -->
-<img alt="avatar" src="$!{person.avatar}"></img></div>
+<div class="line"></div>
+<h4>介绍</h4>
+根据用户名，Email或者url，挖出其相应的Person信息。该Person由若干website聚合而成
+<h4>参数</h4>
+http://weaving-gae.appspot.com/api/dig？q={username,email or url}
+<h4>示例</h4>
+<p><a
+	href="#springUrl('api/dig?q=http%3A%2F%2Fwww.google.com%2Fprofiles%2FKaiYanNju&pretty=1')">挖掘http://www.google.com/profiles/KaiYanNju</a></p>
 
-<p>Email:$!{person.email}</p>
-
-<div>#foreach( $url in ${person.urls} )<a href="${url}"><img
-	src="http://favicongetter.appspot.com/favicon?domain=${url}"></img></a>
-#end</div>
-<p><a href="#springUrl('/person')/$!{person.key}">More Info</a></p>
-
+<div class="articleBody clear"></div>
 </div>
 
-</div>
-#end</div>
+<!-- Article 2 end --> <!-- Article 3 start --> <!-- Article 3 end --></div>
+
 <div class="footer"><!-- Marking the footer section -->
 
 <div class="line"></div>

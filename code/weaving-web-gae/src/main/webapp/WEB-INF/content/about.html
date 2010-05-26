@@ -42,42 +42,58 @@
 </div>
 
 </div>
-<div>
-<div class="line"></div>
-<form action="#springUrl('/search')" id="search">
-<fieldset style="border: 0px;"><input id="searchBox"
-	type="text" name="q" value="${q}" /> <input id="searchBtn"
-	type="submit" value="Search" /></fieldset>
-</form>
-</div>
 
 <div class="section" id="articles"><!-- A new section with the articles -->
 
 <!-- Article 1 start -->
 
 <div class="line"></div>
-<!-- Dividing line --> #foreach( $person in $persons )
-<div class="article"><!-- The new article tag. The id is supplied so it can be scrolled into view. -->
-<h2><span>$!{person.username}</span></h2>
+<!-- Dividing line -->
+
+<div class="article" id="article1"><!-- The new article tag. The id is supplied so it can be scrolled into view. -->
+<h2>简介</h2>
 
 <div class="line"></div>
 
-<div class="articleBody clear">
-
-<div class="figure"><!-- The figure tag marks data (usually an image) that is part of the article -->
-<img alt="avatar" src="$!{person.avatar}"></img></div>
-
-<p>Email:$!{person.email}</p>
-
-<div>#foreach( $url in ${person.urls} )<a href="${url}"><img
-	src="http://favicongetter.appspot.com/favicon?domain=${url}"></img></a>
-#end</div>
-<p><a href="#springUrl('/person')/$!{person.key}">More Info</a></p>
-
+<div class="articleBody clear"></div>
+<p>你想认识新朋友吗。Weaving可以帮助人们认识自己想要进入的社交圈的人，<b>拓宽自己的社交圈。</b></p>
+<p>Weaving API还给您或您的公司提供一张人际关系语义网</p>
 </div>
 
+<!-- Article 1 end --> <!-- Article 2 start -->
+
+<div class="line"></div>
+
+<div class="article" id="article2">
+<h2>示例</h2>
+
+<div class="line"></div>
+<h4>通过Url搜索</h4>
+<p><a
+	href="#springUrl('/search?q=http://www.google.com/profiles/KaiYanNju')">搜索“http://www.google.com/profiles/KaiYanNju“</a></p>
+<h4>通过Email搜索</h4>
+<p><a href="#springUrl('/search?q=kaiyannju@gmail.com')">搜索“kaiyannju@gmail.com“</a></p>
+<h4>通过关键字搜索</h4>
+<p><a href="#springUrl('/search?q=kaiyannju')">搜索“/search?q=kaiyannju“</a></p>
+<div class="articleBody clear"></div>
 </div>
-#end</div>
+
+<!-- Article 2 end --> <!-- Article 3 start -->
+
+<div class="line"></div>
+
+<div class="article" id="article3">
+<h2>其他</h2>
+
+<div class="line"></div>
+<p>项目还在Beta中，如遇不便，请联系<a href="mailto:kaiyannju@gmail.com">kaiyannju@gmail.com</a>。
+</p>
+<p>如果您是开发者，可以在<a href="http://code.google.com/p/weaving/">http://code.google.com/p/weaving/</a>参与这个项目</p>
+<div class="articleBody clear"></div>
+</div>
+
+<!-- Article 3 end --></div>
+
 <div class="footer"><!-- Marking the footer section -->
 
 <div class="line"></div>

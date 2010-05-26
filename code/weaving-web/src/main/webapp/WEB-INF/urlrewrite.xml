@@ -6,6 +6,10 @@
 		<to>/statics/$1</to>
 	</rule>
 	<rule>
+		<from>/favicon.ico</from>
+		<to>/statics/favicon.ico</to>
+	</rule>
+	<rule>
 		<from>/**</from>
 		<to>/app/$1</to>
 	</rule>
