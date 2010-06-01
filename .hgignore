@@ -9,3 +9,7 @@ syntax: regexp
 apache-cassandra-0.6.1
 syntax: regexp
 apache-cassandra-0.6.1/
+syntax: regexp
+apidocs
+syntax: regexp
+lib

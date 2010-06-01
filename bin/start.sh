@@ -1,2 +1,3 @@
 #bin/sh
-java -jar runner.jar weaving-web-1.0.war
+firefox http://localhost:8080&
+java -jar runner.jar weaving-local.war

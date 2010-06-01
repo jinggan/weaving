@@ -3,8 +3,8 @@ clean	:
 generate-gae:
 	rm -rf src/weaving-web-gae/src/main/webapp/statics/
 	rm -rf src/weaving-web-gae/src/main/webapp/WEB-INF/content/
-	cp -r src/weaving-web/src/main/webapp/statics/ src/weaving-web/src/main/webapp/
-	cp -r src/weaving-web/src/main/webapp/WEB-INF/content/ src/weaving-web/src/main/webapp/WEB-INF/
+	cp -r src/weaving-web/src/main/webapp/statics/ src/weaving-web-gae/src/main/webapp/
+	cp -r src/weaving-web/src/main/webapp/WEB-INF/content/ src/weaving-web-gae/src/main/webapp/WEB-INF/
 install :clean generate-gae
 	cd src/ ; mvn package ; cd ../
 	rm -rf doc/apidocs
@@ -13,15 +13,29 @@ install :clean generate-gae
 	mkdir -p lib
 	cp -r src/weaving-web/target/weaving-web-1.0.war lib
 	cd src/ ; mvn clean ; cd ../
-package-src :install
+package-src:install
+	rm -f /tmp/weaving-src.zip
 	zip -r /tmp/weaving-src.zip *
-package-all:package-with-src package-example package
-upload  : package-all
-	python build-scripts/googlecode_upload.py -s jsa4j-1.0-alpha-2.zip -p jsa4j /tmp/jsa4j-1.0-alpha-2.zip
-	python build-scripts/googlecode_upload.py -s jsa4j-src-1.0-alpha-2.zip -p jsa4j /tmp/jsa4j-src-1.0-alpha-2.zip
-	python build-scripts/googlecode_upload.py -s jsa4j-example-1.0-alpha-2.zip -p jsa4j /tmp/jsa4j-example-1.0-alpha-2.zip
-deploy	:
-	cd src/ ; mvn deploy ; cd ../
-deploy-site:
-	cd src/ ; mvn site-deploy ; cd ../
-
+package-war:install
+	rm -f /tmp/weaving-local.war
+	cp lib/weaving-web-1.0.war /tmp/weaving-local.war
+package-bin:install
+	rm -rf tmp/
+	mkdir -p tmp/
+	cp -r bin tmp/
+	cp -r doc tmp/
+	cd tmp/
+	rm -f /tmp/weaving-bin.zip
+	zip -r /tmp/weaving-bin.zip *
+	cd ../
+	rm -rf tmp/
+package-all:package-src package-bin package-war
+upload-bin:package-bin
+	python build-scripts/googlecode_upload.py -s weaving-bin -p weaving /tmp/weaving-bin.zip
+upload-war:package-war
+	python build-scripts/googlecode_upload.py -s weaving-local.war -p weaving /tmp/weaving-local.war
+upload-src:package-src
+	python build-scripts/googlecode_upload.py -s weaving-src -p weaving /tmp/weaving-src.zip	
+upload-all:upload-bin upload-war upload-src
+deploy-gae: generate-gae
+	cd src/weaving-web-gae ; mvn gae:deploy ; cd ../../
