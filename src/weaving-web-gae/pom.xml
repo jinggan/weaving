@@ -18,6 +18,10 @@
 			<groupId>org.jerrymouse</groupId>
 			<artifactId>weaving-api</artifactId>
 			<version>${version}</version>
+		</dependency>	<dependency>
+			<groupId>org.jerrymouse</groupId>
+			<artifactId>getfavicon-api</artifactId>
+			<version>${version}</version>
 		</dependency>
 		<!-- spring -->
 		<dependency>

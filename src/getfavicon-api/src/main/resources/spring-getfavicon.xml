@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd  
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	<context:annotation-config />
+
+	<context:component-scan base-package="org.jerrymouse" />
+
+	<bean name="imageRepo" class="org.jerrymouse.getfavicon.image.ImageRepo">
+		<property name="images">
+			<list>
+				<value>classpath:META-INF/images/blogger.png</value>
+				<value>classpath:META-INF/images/digg.png</value>
+				<value>classpath:META-INF/images/delicious.png</value>
+				<value>classpath:META-INF/images/facebook.png</value>
+				<value>classpath:META-INF/images/flickr.png</value>
+				<value>classpath:META-INF/images/friendfeed.png</value>
+				<value>classpath:META-INF/images/furl.png</value>
+				<value>classpath:META-INF/images/google.png</value>
+				<value>classpath:META-INF/images/linkedin.png</value>
+				<value>classpath:META-INF/images/twitter.png</value>
+				<value>classpath:META-INF/images/youtube.png</value>
+			</list>
+		</property>
+		<property name="defaultImage">
+			<value>classpath:META-INF/images/default.png</value>
+		</property>
+	</bean>
+
+	<bean name="imageMime" class="org.jerrymouse.getfavicon.image.ImageMime">
+		<property name="mimi">
+			<map>
+				<entry>
+					<key>
+						<value>jpg</value>
+					</key>
+					<value>image/jpeg</value>
+				</entry>
+				<entry>
+					<key>
+						<value>png</value>
+					</key>
+					<value>image/png</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+</beans>
+  
