@@ -9,30 +9,24 @@ install :clean generate-gae
 	cd src/ ; mvn package ; cd ../
 	rm -rf doc/apidocs
 	cp -r src/target/site/apidocs/ doc/
-	rm -rf lib/
-	mkdir -p lib
-	cp -r src/weaving-web/target/weaving-web-1.0.war lib
+	rm -f /tmp/weaving-local.war
+	cp src/weaving-web/target/weaving-web-1.0.war /tmp/weaving-local.war
 	cd src/ ; mvn clean ; cd ../
 package-src:install
 	rm -f /tmp/weaving-src.zip
 	zip -r /tmp/weaving-src.zip *
-package-war:install
-	rm -f /tmp/weaving-local.war
-	cp lib/weaving-web-1.0.war /tmp/weaving-local.war
 package-bin:install
 	rm -rf tmp/
 	mkdir -p tmp/
 	cp -r bin tmp/
 	cp -r doc tmp/
-	cd tmp/
 	rm -f /tmp/weaving-bin.zip
-	zip -r /tmp/weaving-bin.zip *
-	cd ../
+	cd tmp/;zip -r /tmp/weaving-bin.zip *;cd ../
 	rm -rf tmp/
-package-all:package-src package-bin package-war
+package-all:package-src package-bin
 upload-bin:package-bin
 	python build-scripts/googlecode_upload.py -s weaving-bin -p weaving /tmp/weaving-bin.zip
-upload-war:package-war
+upload-war:install
 	python build-scripts/googlecode_upload.py -s weaving-local.war -p weaving /tmp/weaving-local.war
 upload-src:package-src
 	python build-scripts/googlecode_upload.py -s weaving-src -p weaving /tmp/weaving-src.zip	
