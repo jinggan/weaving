@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project-modules id="moduleCoreId" project-version="1.5.0">
+<project-modules id="moduleCoreId" project-version="2.0">
   <wb-module deploy-name="weaving-web-gae">
     <property name="context-root" value="weaving-web-gae"/>
     <wb-resource deploy-path="/" source-path="src/main/webapp"/>
@@ -116,22 +115,22 @@
     <dependent-module archiveName="velocity-tools-view-1.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/velocity-tools/velocity-tools-view/1.4/velocity-tools-view-1.4.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
-    <dependent-module archiveName="weaving-api-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/jerrymouse/weaving-api/1.0/weaving-api-1.0.jar">
+    <dependent-module archiveName="weaving-api.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/weaving-api/weaving-api">
       <dependency-type>uses</dependency-type>
     </dependent-module>
-    <dependent-module archiveName="weaving-eye-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/jerrymouse/weaving-eye/1.0/weaving-eye-1.0.jar">
+    <dependent-module archiveName="weaving-eye.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/weaving-eye/weaving-eye">
       <dependency-type>uses</dependency-type>
     </dependent-module>
-    <dependent-module archiveName="weaving-model-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/jerrymouse/weaving-model/1.0/weaving-model-1.0.jar">
+    <dependent-module archiveName="weaving-model.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/weaving-model/weaving-model">
       <dependency-type>uses</dependency-type>
     </dependent-module>
-    <dependent-module archiveName="weaving-person-digger-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/jerrymouse/weaving-person-digger/1.0/weaving-person-digger-1.0.jar">
+    <dependent-module archiveName="weaving-person-digger.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/weaving-person-digger/weaving-person-digger">
       <dependency-type>uses</dependency-type>
     </dependent-module>
-    <dependent-module archiveName="weaving-repository-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/jerrymouse/weaving-repository/1.0/weaving-repository-1.0.jar">
+    <dependent-module archiveName="weaving-repository.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/weaving-repository/weaving-repository">
       <dependency-type>uses</dependency-type>
     </dependent-module>
-    <dependent-module archiveName="weaving-website-extracter-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/jerrymouse/weaving-website-extracter/1.0/weaving-website-extracter-1.0.jar">
+    <dependent-module archiveName="weaving-website-extracter.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/weaving-website-extracter/weaving-website-extracter">
       <dependency-type>uses</dependency-type>
     </dependent-module>
     <dependent-module archiveName="xalan-2.7.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/xalan/xalan/2.7.1/xalan-2.7.1.jar">
@@ -145,9 +144,5 @@
     </dependent-module>
     <wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/java"/>
     <wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/resources"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
   </wb-module>
 </project-modules>

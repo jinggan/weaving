@@ -158,7 +158,7 @@ function BlogPreview(container) {
 #end <!-- 服务全 -->
 <h4>Web服务</h4>
 #foreach( $url in ${person.urls} )<a href="${url}"><img
-	src="http://favicongetter.appspot.com/favicon?domain=${url}"></img></a>
+	src="#springUrl('/getfavicon')?domain=${url}"></img></a>
 #end
 <div class="line"></div>
 

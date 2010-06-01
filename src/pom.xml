@@ -176,5 +176,6 @@
 		<module>weaving-api</module>
 		<module>weaving-person-digger</module>
     <module>weaving-web</module>    <module>weaving-web-gae</module>
+    <module>getfavicon-api</module>
   </modules>
 </project>
