@@ -1,18 +1,22 @@
 ﻿Project description
 -------------------
+Weaving是一个人际关系搜索引擎。利用Web挖掘和语义技术。能够搜索普通人的网络关系网。
+
+Weaving者编织也，意在帮助用户编织人际网络，同时也可以理解为编织一张Web人际网。Weaving音同Waving,有见面打招呼之意，可以帮助认识新朋友。
+
+展示网址：http://weaving-gae.appspot.com/
 
 
 文件介绍
 -------------------
-bin目录下是运行脚本
-src目录下是源文件
-doc目录下是文档
+/bin目录下是运行脚本
+/src目录下是源文件
+/doc目录下是文档
 
 Run Requirements
 ------------
   * Java >= 1.6 (OpenJDK and Sun have been tested)
   * Google App Engine for Java(optional if you want to run on it)
-
   
 Getting started
 ---------------
