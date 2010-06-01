@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<link rel="shortcut icon" href="#springUrl('/statics/favicon.ico')" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+<link rel="stylesheet" type="text/css"
+	href="#springUrl('/statics/styles.css')" />
+
+<!--[if IE]>
+        
+        <style type="text/css">
+        .clear {
+          zoom: 1;
+          display: block;
+        }
+        </style>
+
+        
+        <![endif]-->
+
+<title>${person.key}</title>
+<script type="text/javascript"
+	src="http://www.google.com/jsapi?key=ABQIAAAAxVoQ1ADfknG9b0DlbGhVQhQNqvnaUM94JQh725rbRedMgVBYLxS_5GqPOy_qs5DXvg_lu_aNR5hNaA"></script>
+
+<script type="text/javascript">
+function BlogPreview(container) {
+	  this.container_ = container;
+	}
+
+	BlogPreview.prototype.show = function(url, opt_noTitle) {
+	  var feed = new google.feeds.Feed(url);
+	  var preview = this;
+	  feed.load(function(result) {
+	    preview.render_(result, opt_noTitle);
+	  });
+	}
+
+	BlogPreview.prototype.render_ = function(result, opt_noTitle) {
+	  if (!result.feed || !result.feed.entries) return;
+//	  while (this.container_.firstChild) {
+//	    this.container_.removeChild(this.container_.firstChild);
+//	  }
+
+	  var blog = this.createDiv_(this.container_, "blog");
+	  if (!opt_noTitle) {
+	    var header = this.createElement_("h3", blog, "white");
+	    this.createLink_(header, result.feed.link, result.feed.title,"white");
+	  }
+
+	  for (var i = 0; i < result.feed.entries.length; i++) {
+	    var entry = result.feed.entries[i];
+	    var div = this.createDiv_(blog, "entry");
+	    var linkDiv = this.createDiv_(div, "title");
+	    this.createLink_(linkDiv, entry.link, entry.title);
+	    if (entry.author) {
+	      this.createDiv_(div, "author", "Posted by " + entry.author);
+	    }
+	    this.createDiv_(div, "body", entry.contentSnippet);
+	  }
+	}
+
+	BlogPreview.prototype.createDiv_ = function(parent, className, opt_text) {
+	  return this.createElement_("div", parent, className, opt_text);
+	}
+
+	BlogPreview.prototype.createLink_ = function(parent, href, text,className) {
+	  var link = this.createElement_("a", parent, "", text);
+	  link.href = href;
+	  link.className = className;
+	  return link;
+	}
+
+	BlogPreview.prototype.createElement_ = function(tagName, parent, className,
+	                                                opt_text) {
+	  var div = document.createElement(tagName);
+	  div.className = className;
+	  parent.appendChild(div);
+	  if (opt_text) {
+	    div.appendChild(document.createTextNode(opt_text));
+	  }
+	  return div;
+	}
+
+</script>
+<script type="text/javascript">
+ 
+    google.load("feeds", "1");
+
+	var urls=new Array();
+    
+    function executeSearch() {
+        var blog = new BlogPreview(document.getElementById("feed_content"));
+        for (var i=0;i < urls.length ;i++)
+        {
+            blog.show(urls[i]);
+        }
+        return false;
+    }
+
+    function initialize() {
+		#foreach( $url in ${person.feeds} ) 
+		urls.push("${url}");
+		#end
+        executeSearch();
+    }
+    
+    google.setOnLoadCallback(initialize);
+    </script>
+
+</head>
+<body>
+
+<div class="section" id="page"><!-- Defining the #page section with the section tag -->
+
+<div class="header"><!-- Defining the header section of the page with the appropriate tag -->
+
+<h1><a href="#springUrl('/')">Weaving</a></h1>
+<h3>人际关系搜索</h3>
+
+<div class="nav clear"><!-- The nav link semantically marks your main site navigation -->
+<ul>
+	<li><a href="#springUrl('/')">首页</a></li>
+	<li><a href="#springUrl('/api')">Weaving API</a></li>
+	<li><a href="#springUrl('/about')">关于</a></li>
+</ul>
+</div>
+
+</div>
+
+<div class="section" id="articles"><!-- A new section with the articles -->
+
+<!-- Article 1 start -->
+
+<div class="line"></div>
+<!-- Dividing line -->
+
+<div class="article" id="article1"><!-- The new article tag. The id is supplied so it can be scrolled into view. -->
+<h2><span>$!{person.username}</span></h2>
+
+<div class="line"></div>
+
+
+<!-- 相片 --> <img style="float: right;" src="$!{person.avatar}"></img> <!-- id全 -->
+<h4>ID</h4>
+#foreach( $id in ${person.ids} )
+<p>${id}</p>
+#end <!-- 用户名全 -->
+<h4>用户名</h4>
+#foreach( $username in ${person.usernames} )
+<p>${username}</p>
+#end <!-- email全 -->
+<h4>Email</h4>
+#foreach( $email in ${person.emails} )
+<p><a href="mailto:${email}" style="color: white;">${email}</a></p>
+#end <!-- 服务全 -->
+<h4>Web服务</h4>
+#foreach( $url in ${person.urls} )<a href="${url}"><img
+	src="http://favicongetter.appspot.com/favicon?domain=${url}"></img></a>
+#end
+<div class="line"></div>
+
+<h3>资讯</h3>
+<div id="feed_content"></div>
+
+<div class="articleBody clear"></div>
+</div>
+
+<!-- Article 1 end --> <!-- Article 2 start --> <!-- Article 2 end --> <!-- Article 3 start -->
+
+<!-- Article 3 end --></div>
+
+<div class="footer"><!-- Marking the footer section -->
+
+<div class="line"></div>
+
+<p>Copyright 2010 - Jerrymouse.org</p>
+
+</div>
+</div>
+
+<!-- Closing the #page section -->
+<!-- JavaScript Includes -->
+</body>
+
+
+</html>

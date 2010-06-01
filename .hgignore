@@ -1,0 +1,15 @@
+
+syntax: regexp
+target
+syntax: regexp
+src/main/webapp/WEB-INF/lib
+syntax: regexp
+derby.log
+syntax: regexp
+apache-cassandra-0.6.1
+syntax: regexp
+apache-cassandra-0.6.1/
+syntax: regexp
+apidocs
+syntax: regexp
+lib

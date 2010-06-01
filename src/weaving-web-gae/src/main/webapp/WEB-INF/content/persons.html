@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<link rel="shortcut icon" href="#springUrl('/statics/favicon.ico')" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Weaving</title>
+
+<link rel="stylesheet" type="text/css"
+	href="#springUrl('/statics/styles.css')" />
+
+<!--[if IE]>
+        
+        <style type="text/css">
+        .clear {
+          zoom: 1;
+          display: block;
+        }
+        </style>
+
+        
+        <![endif]-->
+
+</head>
+
+<body>
+
+<div class="section" id="page"><!-- Defining the #page section with the section tag -->
+
+<div class="header"><!-- Defining the header section of the page with the appropriate tag -->
+
+<h1><a href="#springUrl('/')">Weaving</a></h1>
+<h3>人际关系搜索</h3>
+
+<div class="nav clear"><!-- The nav link semantically marks your main site navigation -->
+<ul>
+	<li><a href="#springUrl('/')">首页</a></li>
+	<li><a href="#springUrl('/api')">Weaving API</a></li>
+	<li><a href="#springUrl('/about')">关于</a></li>
+</ul>
+</div>
+
+</div>
+<div>
+<div class="line"></div>
+<form action="#springUrl('/search')" id="search">
+<fieldset style="border: 0px;"><input id="searchBox"
+	type="text" name="q" value="${q}" /> <input id="searchBtn"
+	type="submit" value="Search" /></fieldset>
+</form>
+</div>
+
+<div class="section" id="articles"><!-- A new section with the articles -->
+
+<!-- Article 1 start -->
+
+<div class="line"></div>
+<!-- Dividing line --> #foreach( $person in $persons )
+<div class="article"><!-- The new article tag. The id is supplied so it can be scrolled into view. -->
+<h2><span>$!{person.username}</span></h2>
+
+<div class="line"></div>
+
+<div class="articleBody clear">
+
+<div class="figure"><!-- The figure tag marks data (usually an image) that is part of the article -->
+<img alt="avatar" src="$!{person.avatar}"></img></div>
+
+<p>Email:$!{person.email}</p>
+
+<div>#foreach( $url in ${person.urls} )<a href="${url}"><img
+	src="http://favicongetter.appspot.com/favicon?domain=${url}"></img></a>
+#end</div>
+<p><a href="#springUrl('/person')/$!{person.key}">More Info</a></p>
+
+</div>
+
+</div>
+#end</div>
+<div class="footer"><!-- Marking the footer section -->
+
+<div class="line"></div>
+
+<p>Copyright 2010 - Jerrymouse.org</p>
+
+</div>
+</div>
+
+<!-- Closing the #page section -->
+<!-- JavaScript Includes -->
+</body>
+</html>
