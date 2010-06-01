@@ -70,7 +70,7 @@
 <p>Email:$!{person.email}</p>
 
 <div>#foreach( $url in ${person.urls} )<a href="${url}"><img
-	src="http://favicongetter.appspot.com/favicon?domain=${url}"></img></a>
+	src="#springUrl('/getfavicon')?domain=${url}"></img></a>
 #end</div>
 <p><a href="#springUrl('/person')/$!{person.key}">More Info</a></p>
 
