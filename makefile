@@ -8,7 +8,7 @@ generate-gae:
 install :clean generate-gae
 	cd src/ ; mvn package ; cd ../
 	rm -rf doc/apidocs
-	cp -r src/target/site/apidocs/ doc/
+#	cp -r src/target/site/apidocs/ doc/
 	rm -f /tmp/weaving-local.war
 	cp src/weaving-web/target/weaving-web-1.0.war /tmp/weaving-local.war
 	cd src/ ; mvn clean ; cd ../
